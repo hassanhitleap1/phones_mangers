@@ -24,6 +24,9 @@ use Yii;
  */
 class Phones extends \yii\db\ActiveRecord
 {
+    const UMNIAH=0;
+    const ZAIN=1;
+    const ORANGE=2;
     /**
      * {@inheritdoc}
      */
