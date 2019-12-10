@@ -1,5 +1,7 @@
 <?php
 
+use app\models\Phones;
+use Carbon\Carbon;
 use yii\db\Migration;
 
 /**
@@ -13,6 +15,7 @@ class m191210_143153_add_phonse_to_table extends Migration
     {
         
         $listPhone=[];
+        $order=12;
         for ($one=0; $one < 10 ; $one++) { 
             # code...
             for ($two=0; $two <10 ; $two++) { 
@@ -32,17 +35,56 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     $naumberZain="079".(string)$one. (string)$two. (string)$three.(string)$four.(string)$five.(string)$sax.(string)$sevien;
                                     
                                     if($one==0){
+                                       
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone'=>Phones::ORANGE,
+                                            'status'=>Phones::ACTIVE,
+                                            'fullname'=>'', 
+                                            'title_job'=>'', 
+                                            'gender'=> Phones::UNDEFINED,
+                                            'governorate_id' =>null,
+                                            'area_id' => null, 
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                             'order'=>$order, 
+                                             'created_at'=>Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
 
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
 
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
                                         
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-
-                                        
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
-
-                                        
-
+                               
                                         if($sevien==9){
                                         
                                             Yii::$app->db
@@ -57,9 +99,54 @@ class m191210_143153_add_phonse_to_table extends Migration
 
                                     if($one==1){
 
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
 
                                         if($sevien==9){
                                             Yii::$app->db
@@ -71,10 +158,53 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     }
 
                                     if($one==2){
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
 
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
@@ -85,10 +215,54 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     }
 
                                     if($one==3){
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
 
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+                                        
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
@@ -99,10 +273,53 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     }
 
                                     if($one==4){
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
 
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
@@ -112,10 +329,53 @@ class m191210_143153_add_phonse_to_table extends Migration
                                         }
                                     }
                                     if($one==5){
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
 
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
@@ -125,9 +385,54 @@ class m191210_143153_add_phonse_to_table extends Migration
                                         }
                                     }
                                     if($one==6){
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
 
                                         if($sevien==9){
                                             Yii::$app->db
@@ -138,9 +443,54 @@ class m191210_143153_add_phonse_to_table extends Migration
                                         }
                                     }
                                     if($one==7){
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
 
                                         if($sevien==9){
                                             Yii::$app->db
@@ -151,9 +501,54 @@ class m191210_143153_add_phonse_to_table extends Migration
                                         }
                                     }
                                     if($one==8){
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
 
                                         if($sevien==9){
                                             Yii::$app->db
@@ -164,9 +559,53 @@ class m191210_143153_add_phonse_to_table extends Migration
                                         }
                                     }
                                     if($one==9){
-                                        array_push($listPhone,["phone_num"=>$numberOrang]);
-                                        array_push($listPhone,["phone_num"=>$numberUmnia]);
-                                        array_push($listPhone,["phone_num"=>$naumberZain]);
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberOrang,
+                                            'type_phone' => Phones::ORANGE,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $numberUmnia,
+                                            'type_phone' => Phones::UMNIAH,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
+
+                                        array_push($listPhone, [
+                                            'phone_number' => $naumberZain,
+                                            'type_phone' => Phones::ZAIN,
+                                            'status' => Phones::ACTIVE,
+                                            'fullname' => '',
+                                            'title_job' => '',
+                                            'gender' => Phones::UNDEFINED,
+                                            'governorate_id' => null,
+                                            'area_id' => null,
+                                            'nationality_id' => null,
+                                            'date_of_birth' => null,
+                                            'order' => $order,
+                                            'created_at' => Carbon::now('Asia/Amman'),
+                                            'updated_at' => null,
+                                        ]);
 
                                         if($sevien==9){
                                             Yii::$app->db
