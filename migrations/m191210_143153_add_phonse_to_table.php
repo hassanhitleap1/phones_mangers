@@ -36,7 +36,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     $naumberZain="079".(string)$one. (string)$two. (string)$three.(string)$four.(string)$five.(string)$sax.(string)$sevien;
                                     
                                     if($one==0){
-                    
+                                        $order=mt_rand(0, 9999999);
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
@@ -101,7 +101,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     }
 
                                     if($one==1){
-
+                                        $order=mt_rand(0, 9999999);
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
@@ -161,7 +161,8 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     }
 
                                     if($one==2){
-                               
+
+                                        $order=mt_rand(0, 9999999);
 
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -222,7 +223,9 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     }
 
                                     if($one==3){
-                                    
+
+                                        $order=mt_rand(0, 9999999);
+
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
@@ -283,6 +286,7 @@ class m191210_143153_add_phonse_to_table extends Migration
 
                                     if($one==4){
                                   
+                                        $order=mt_rand(0, 9999999);
 
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -342,9 +346,11 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             $listPhone=[];
                                         }
                                     }
+
+
                                     if($one==5){
-                           
-
+                                        
+                                        $order=mt_rand(0, 9999999);
 
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -403,8 +409,10 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             $listPhone=[];
                                         }
                                     }
+
                                     if($one==6){
                            
+                                        $order=mt_rand(0, 9999999);
 
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -464,8 +472,11 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             $listPhone=[];
                                         }
                                     }
+
+
                                     if($one==7){
-                                
+                                        
+                                        $order=mt_rand(0, 9999999);
 
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -524,8 +535,12 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             $listPhone=[];
                                         }
                                     }
+
+
                                     if($one==8){
-                                
+                                        
+                                        $order=mt_rand(0, 9999999);
+
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
@@ -584,7 +599,12 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             $listPhone=[];
                                         }
                                     }
+
+
                                     if($one==9){
+
+                                        $order=mt_rand(0, 9999999);
+                                        
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
