@@ -9,8 +9,8 @@ use yii\db\Migration;
  */
 class m191210_143153_add_phonse_to_table extends Migration
 {
-    public $data=['phone_number','type_phone','status','fullname','title_job','gender','governorate_id',
-    'area_id','nationality_id','date_of_birth','order','created_at','updated_at'];
+
+    public $data=['phone_number','type_phone','status','gender','order','created_at','updated_at'];
     public function up()
     {
         
@@ -37,17 +37,11 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     
                                     if($one==0){
                                         $order=mt_rand(0, 9999999);
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -57,13 +51,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -73,13 +61,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -102,18 +84,12 @@ class m191210_143153_add_phonse_to_table extends Migration
 
                                     if($one==1){
                                         $order=mt_rand(0, 9999999);
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -122,13 +98,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -138,13 +108,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -164,18 +128,12 @@ class m191210_143153_add_phonse_to_table extends Migration
 
                                         $order=mt_rand(0, 9999999);
 
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -184,13 +142,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -200,13 +152,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -226,18 +172,12 @@ class m191210_143153_add_phonse_to_table extends Migration
 
                                         $order=mt_rand(0, 9999999);
 
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -246,13 +186,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -262,13 +196,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -288,18 +216,12 @@ class m191210_143153_add_phonse_to_table extends Migration
                                   
                                         $order=mt_rand(0, 9999999);
 
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -308,13 +230,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -324,13 +240,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -352,18 +262,12 @@ class m191210_143153_add_phonse_to_table extends Migration
                                         
                                         $order=mt_rand(0, 9999999);
 
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -372,13 +276,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -388,13 +286,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -414,18 +306,12 @@ class m191210_143153_add_phonse_to_table extends Migration
                            
                                         $order=mt_rand(0, 9999999);
 
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -434,13 +320,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -450,13 +330,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -478,18 +352,12 @@ class m191210_143153_add_phonse_to_table extends Migration
                                         
                                         $order=mt_rand(0, 9999999);
 
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -498,13 +366,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -514,13 +376,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -541,18 +397,12 @@ class m191210_143153_add_phonse_to_table extends Migration
                                         
                                         $order=mt_rand(0, 9999999);
 
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -561,13 +411,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -577,13 +421,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -605,18 +443,12 @@ class m191210_143153_add_phonse_to_table extends Migration
 
                                         $order=mt_rand(0, 9999999);
                                         
-                                        array_push($listPhone, [
+                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
-                                            'order' => $order,
+                                       'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -625,13 +457,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $numberUmnia,
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
@@ -641,13 +467,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                             'phone_number' => $naumberZain,
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
-                                            'fullname' => '',
-                                            'title_job' => '',
                                             'gender' => Phones::UNDEFINED,
-                                            'governorate_id' => 1,
-                                            'area_id' => 1,
-                                            'nationality_id' => 1,
-                                            'date_of_birth' => Carbon::now('Asia/Amman')->toDateString(),
                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
