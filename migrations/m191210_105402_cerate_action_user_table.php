@@ -18,8 +18,9 @@ class m191210_105402_cerate_action_user_table extends Migration
             'id' => $this->primaryKey(),
             'phone_id' => $this->integer(),
             'status' => $this->smallInteger()->defaultValue(10),
-            'created_at' => $this->date(),
-            'updated_at' => $this->date(),
+            'note' => $this->text(),
+            'created_at' => $this->dateTime(),
+            'updated_at' => $this->dateTime(),
         ], $tableOptions);
     }
     public function down()

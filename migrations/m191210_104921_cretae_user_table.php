@@ -1,5 +1,6 @@
 <?php
 
+use app\models\User;
 use yii\db\Migration;
 
 /**
@@ -28,6 +29,21 @@ class m191210_104921_cretae_user_table extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
+
+
+        $data = [
+            [
+                'username' => 'hassanki',
+                'auth_key' => 'asdasdasdcsfsdvdfs',
+                'email'=>'hassankiwan92@gmail.com',
+                'password_hash' => Yii::$app->getSecurity()->generatePasswordHash("programerhk92"),
+                'type' => User::USER_SUPER_ADMIN,
+            ]
+        ];
+        Yii::$app->db
+            ->createCommand()
+            ->batchInsert('user', ['username', 'auth_key', "email","password_hash", "type"], $data)
+            ->execute();
     }
     public function down()
     {

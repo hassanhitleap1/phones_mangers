@@ -5,14 +5,13 @@ namespace app\controllers;
 use Yii;
 use app\models\Phones;
 use app\models\PhonesSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * PhonesController implements the CRUD actions for Phones model.
  */
-class PhonesController extends Controller
+class PhonesController extends BaseController
 {
     /**
      * {@inheritdoc}
