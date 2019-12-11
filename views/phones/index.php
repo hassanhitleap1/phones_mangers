@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id',
             'phone_number',
-            'type_phone',
+            // 'type_phone',
             'status',
             'fullname',
             'title_job',
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'governorate_id',
                 'value' => function($searchModel){
-                    return $searchModel->governorate->name_ar;
+                    return $searchModel->governorate['name_ar'];
                 },
                 'filter' =>[0=>"غير محدد",1=>" ذكر",2=>" انثى"],
                 'format' => 'html',
