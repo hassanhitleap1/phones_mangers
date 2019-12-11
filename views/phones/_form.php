@@ -16,9 +16,7 @@ use yii\widgets\ActiveForm;
                 ]
     ]); ?>
 
-    <?= $form->field($model, 'phone_number')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'type_phone')->textInput() ?>
+    <?= $form->field($model, 'phone_number')->textInput(['maxlength' => true,'disabled'=>true]) ?>
 
     <?= $form->field($model, 'status')->textInput() ?>
 
@@ -35,12 +33,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'nationality_id')->textInput() ?>
 
     <?= $form->field($model, 'date_of_birth')->textInput() ?>
-
-    <?= $form->field($model, 'order')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

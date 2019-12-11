@@ -17,6 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+  
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -44,15 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             'view' => function ($url, $model) {
                                 return Html::button(Yii::t('app', 'lead-view'), ['value' => $url,
                                         'title' => Yii::t('app', 'lead-view'), 
-                                        'class' => 'loadMainContent btn btn-success',
-                                        'id'=>"modelshow",'data-pjax' => 0]); 
+                                        'class' => 'modelshow btn btn-success','data-pjax' => 0]); 
                             },
 
                             'update' => function ($url, $model) {
                                 return Html::button(Yii::t('app', 'lead-update'), ['value' => $url,
                                         'title' => Yii::t('app', 'lead-update'), 
-                                        'class' => 'loadMainContent btn btn-success',
-                                         'id'=>"modelbutton",'data-pjax' => 0]);
+                                        'class' => 'update-button btn btn-success','data-pjax' => 0]);
                             },
                      
                         ]
@@ -62,32 +61,19 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 
     <?php Pjax::end(); ?>
-    <?php
-$script = <<< JS
-$(document).on('click', '#modelbutton', function(){
-    url=$(this).attr('value');
-    $('#model').load(url).modal({ show: true });;
-});
 
-});
-
-
-
-
-
-JS;
-$this->registerJs($script);
+<?php
+            
+    Modal::begin([
+            'id'     => 'model',
+            'size'   => 'model-lg',
+    ]);
+    
+    echo "<div id='modelContent'></div>";
+    
+    Modal::end();
+            
 ?>
-    <?php
-        Modal::begin([
-            'header'=>'<h4 id="modalHeader">send sms</h4>',
-            'id'=>'model',
-            'size'=>'model-lg'
-            ]);
-        echo '<div id="main-content"></div>';
-        Modal::end();
-    ?>
-
 </div>
 
 
