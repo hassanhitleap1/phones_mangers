@@ -10,7 +10,11 @@ use yii\widgets\ActiveForm;
 
 <div class="phones-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+                'options' => [
+                    'id' => 'create-product-form'
+                ]
+    ]); ?>
 
     <?= $form->field($model, 'phone_number')->textInput(['maxlength' => true]) ?>
 
