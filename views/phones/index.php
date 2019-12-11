@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Phones;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -30,11 +31,33 @@ $this->params['breadcrumbs'][] = $this->title;
             'type_phone',
             'status',
             'fullname',
-            //'title_job',
-            //'gender',
-            //'governorate_id',
-            //'area_id',
-            //'nationality_id',
+            'title_job',
+            [
+                'attribute' => 'gender',
+                'value' => function($searchModel){
+                        if ($searchModel->gender == Phones::MALE) {
+                            return "ذكر";
+                        } elseif ($searchModel->gender == Phones::FEMALE) {
+                            # code...
+                            return "انثى";
+                        } else {
+                            return 'غير محدد';
+                        }
+                },
+                'filter' =>[0=>"غير محدد",1=>" ذكر",2=>" انثى"],
+                'format' => 'html',
+            ],
+
+            [
+                'attribute' => 'governorate_id',
+                'value' => function($searchModel){
+                    return $searchModel->governorate->name_ar;
+                },
+                'filter' =>[0=>"غير محدد",1=>" ذكر",2=>" انثى"],
+                'format' => 'html',
+            ],
+            'area.name_ar',
+            'nationality.name_ar',
             'date_of_birth',
             //'order',
             //'created_at',

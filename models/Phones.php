@@ -84,4 +84,32 @@ class Phones extends \yii\db\ActiveRecord
     {
         return new PhonesQuery(get_called_class());
     }
+
+
+
+     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNationality()
+    {
+        return $this->hasOne(Nationality::className(), ['id' => 'nationality_id']);
+    }
+
+
+
+      /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGovernorate()
+    {
+        return $this->hasOne(Governorate::className(), ['id' => 'governorate_id']);
+    }
+  
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArea()
+    {
+        return $this->hasOne(Area::className(), ['id' => 'area_id']);
+    }
 }
