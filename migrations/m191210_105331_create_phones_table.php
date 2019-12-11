@@ -23,10 +23,10 @@ class m191210_105331_create_phones_table extends Migration
             'governorate_id'=>$this->integer(),
             'area_id'=>$this->integer(),
             'nationality_id'=>$this->integer(),
-            'date_of_birth'=>$this->date(),
+            'date_of_birth'=>$this->dateTime(),
             'order'=>$this->integer(),
-            'created_at'=>$this->date(),
-            'updated_at'=>$this->date(),
+            'created_at'=>$this->dateTime(),
+            'updated_at'=>$this->dateTime(),
         ]);
     }
 
