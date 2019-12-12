@@ -34,7 +34,7 @@ class UserCreateor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'password_hash', 'email', 'created_at'], 'required'],
+            [['username', 'password_hash', 'email'], 'required'],
             [['central_id', 'type', 'super_admin_id', 'status' ], 'integer'],
             [['username', 'password_hash',  'email'], 'string', 'max' => 255],
             [['username'], 'unique'],
@@ -68,5 +68,21 @@ class UserCreateor extends \yii\db\ActiveRecord
     public static function find()
     {
         return new UserQuery(get_called_class());
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if($this->isNewRecord){
+                $this->password_hash = Yii::$app->security->generatePasswordHash($this->password_hash);
+                $this->auth_key = Yii::$app->security->generateRandomString();
+                $this->verification_token = Yii::$app->security->generateRandomString() . '_' . time();
+
+            }else{
+                $this->password_hash = Yii::$app->security->generatePasswordHash($this->password_hash);
+            }
+            return true;
+        }
+        return false;
     }
 }

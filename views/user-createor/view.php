@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\UserCreateor */
 
-$this->title = $model->id;
+$this->title = $model->username;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'User Createors'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -31,9 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
+            // 'auth_key',
+            // 'password_hash',
+            // 'password_reset_token',
             'email:email',
             'central_id',
             'type',
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'status',
             'created_at',
             'updated_at',
-            'verification_token',
+            // 'verification_token',
         ],
     ]) ?>
 

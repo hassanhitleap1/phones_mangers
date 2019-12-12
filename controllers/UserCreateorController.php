@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use Yii;
 use app\models\UserCreateor;
 use app\models\UserCreateorSearch;
@@ -20,6 +21,22 @@ class UserCreateorController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'only' => ['index', 'view','create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'actions' => ['index', 'view','create', 'update', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            return Yii::$app->user->identity->type == User::USER_SUPER_ADMIN;
+
+                        }
+                    ],
+                ],
+            ],  
+            
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
