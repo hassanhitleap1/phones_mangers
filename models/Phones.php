@@ -112,4 +112,13 @@ class Phones extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Area::className(), ['id' => 'area_id']);
     }
+
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserAction()
+    {
+        return $this->hasOne(UserAction::className(), ['phone_id' => 'id'])->where(['user_id' => Yii::$app->user->id]); //, 
+    }
 }

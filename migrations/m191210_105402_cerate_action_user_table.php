@@ -17,7 +17,8 @@ class m191210_105402_cerate_action_user_table extends Migration
         $this->createTable('{{%user_action}}', [
             'id' => $this->primaryKey(),
             'phone_id' => $this->integer(),
-            'status' => $this->smallInteger()->defaultValue(10),
+            'status' => $this->smallInteger(),
+            'user_id' => $this->integer(),
             'note' => $this->text(),
             'created_at' => $this->dateTime(),
             'updated_at' => $this->dateTime(),

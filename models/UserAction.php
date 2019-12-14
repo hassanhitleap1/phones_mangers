@@ -22,14 +22,16 @@ use Yii;
  */
 class UserAction extends \yii\db\ActiveRecord
 {
-    const USER_BUSY=0;
-    const USER_UNAVAILABLE = 1;
+    const DISACTIVE = 0;
+    const ACTIVE = 1;
     const USER_OUT_OF_SERVICE = 2;
     const USER_CALL_LATER = 3;
     const USER_NON_USER = 4;
     const USER_IT_WAS_AGREED = 5;
     const USER_CLOSED=6;
     const USER_DISCONNECTED = 7;
+    const USER_UNAVAILABLE = 8;
+    const USER_BUSY = 9;
     /**
      * {@inheritdoc}
      */

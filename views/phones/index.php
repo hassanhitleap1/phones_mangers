@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Phones;
+use app\models\UserAction;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -45,6 +46,49 @@ $this->params['breadcrumbs'][] = $this->title;
                         }
                 },
                 'filter' =>[0=>"غير محدد",1=>" ذكر",2=>" انثى"],
+                'format' => 'html',
+            ],
+            [
+                'attribute' => 'status',
+                'value' => function ($searchModel) {
+                    if($searchModel->userAction !=null){
+                        if ($searchModel->userAction->status==UserAction::USER_BUSY){
+                            return "USER_BUSY";
+                        }elseif ($searchModel->userAction->status == UserAction::USER_CALL_LATER) {
+                            # code...
+                            return "USER_CALL_LATER";
+                        }elseif ($searchModel->userAction->status == UserAction::USER_CLOSED) {
+                            # code...
+                            return "USER_CLOSED";
+                        } elseif ($searchModel->userAction->status == UserAction::USER_DISCONNECTED) {
+                            # code...
+                            return "USER_DISCONNECTED";
+                        } elseif ($searchModel->userAction->status == UserAction::USER_IT_WAS_AGREED) {
+                            # code...
+                            return "USER_IT_WAS_AGREED";
+                        } elseif ($searchModel->userAction->status == UserAction::USER_OUT_OF_SERVICE) {
+                            # code...
+                            return "USER_OUT_OF_SERVICE";
+                        } elseif ($searchModel->userAction->status == UserAction::USER_UNAVAILABLE) {
+                            # code...
+                            return "USER_UNAVAILABLE";
+                        } elseif ($searchModel->userAction->status == UserAction::USER_NON_USER) {
+                            # code...
+                            return "USER_NON_USER";
+                        }else{
+                            # code...
+                             return $searchModel->userAction->status;
+                        }
+
+                        
+                    }elseif($searchModel->status==Phones::ACTIVE) {
+                        # code...
+                        return "ACTIVE";
+                    }else{
+                       return "disactive";
+                    }
+                                         
+                },
                 'format' => 'html',
             ],
 

@@ -36,7 +36,6 @@ class PhonesController extends BaseController
     {
         $searchModel = new PhonesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
