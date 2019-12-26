@@ -32,6 +32,10 @@ class Phones extends \yii\db\ActiveRecord
     const UNDEFINED=0;
     const MALE = 1;
     const FEMALE = 2;
+
+    public $note;
+    public $status_central;
+
     
     /**
      * {@inheritdoc}
@@ -73,6 +77,8 @@ class Phones extends \yii\db\ActiveRecord
             'order' => Yii::t('app', 'Order'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
+            'status_central' => Yii::t('app', 'Status'),
+            'note'=>Yii::t('app', 'Note'),
         ];
     }
 

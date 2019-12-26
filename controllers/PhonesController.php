@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Phones;
 use app\models\PhonesSearch;
+use app\models\UserAction;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -83,8 +84,15 @@ class PhonesController extends BaseController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if($model->userAction !=null){
+                $useraction=UserAction::where(['user_id', Yii::$app->user->id])->one();
+                $useraction->note=$model->note;
+                $useraction->status= $model->status_central;
+                $useraction->save();
+            }else{
+
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

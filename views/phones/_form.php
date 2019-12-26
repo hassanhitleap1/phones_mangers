@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Phones */
 /* @var $form yii\widgets\ActiveForm */
 $date=($model->isNewRecord)?Carbon::now("Asia/Amman"):$model->created_at;
+$note= ($model->userAction !=null) ? $model->userAction->note:''; ;
+$status_user=($model->userAction !=null) ? $model->userAction->status:-1;
 $today=Carbon::now("Asia/Amman");
 
 ?>
@@ -29,16 +31,9 @@ $today=Carbon::now("Asia/Amman");
     <?= $form->field($model, 'phone_number')->textInput(['maxlength' => true,'disabled'=>true]) ?>
 
     <?= $form->field($model, 'status')->dropDownList([
-            0=> 'DISACTIVE',
-            1=> 'ACTIVE',
-            2=> 'USER_OUT_OF_SERVICE' ,
-            3 =>'USER_CALL_LATER' ,
-            4=>' USER_NON_USER',
-            5 =>'USER_IT_WAS_AGREED ',
-            6 => 'USER_CLOSED',
-            7 =>'USER_DISCONNECTED' ,
-            8 =>'USER_UNAVAILABLE' ,
-            9 =>'USER_BUSY' 
+          1=> 'ACTIVE',
+          0=> 'DISACTIVE',
+        
             ]) ?>
 
     <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
@@ -69,7 +64,19 @@ $today=Carbon::now("Asia/Amman");
                 ]
             ); ?>
 
+    <?= $form->field($model, 'note')->textarea([ 'value' => $note]) ?>
 
+    <?= $form->field($model, 'status_central')->dropDownList([
+                -1=> 'USER_No_Action',
+               2=> 'USER_OUT_OF_SERVICE' ,
+               3 =>'USER_CALL_LATER' ,
+               4=>' USER_NON_USER',
+               5 =>'USER_IT_WAS_AGREED ',
+               6 => 'USER_CLOSED',
+               7 =>'USER_DISCONNECTED' ,
+               8 =>'USER_UNAVAILABLE' ,
+               9 =>'USER_BUSY'
+            ,'value' => $status_user]) ?>
 
     <?= $form->field($model, 'date_of_birth')->widget(DatePicker::classname(), [
                 'options' => ['placeholder' => Yii::t('app', 'Enter_date')],
