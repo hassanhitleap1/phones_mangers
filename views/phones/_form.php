@@ -27,46 +27,77 @@ $today=Carbon::now("Asia/Amman");
                     'id' => 'create-product-form'
                 ]
     ]); ?>
+    
+    
 
-    <?= $form->field($model, 'phone_number')->textInput(['maxlength' => true,'disabled'=>true]) ?>
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'phone_number')->textInput(['maxlength' => true,'disabled'=>true]) ?>
+        </div>
+        <div class="col-md-6">
 
-    <?= $form->field($model, 'status')->dropDownList([
-          1=> 'ACTIVE',
-          0=> 'DISACTIVE',
-        
-            ]) ?>
+        <?= $form->field($model, 'status')->dropDownList([
+                1=> 'ACTIVE',
+                0=> 'DISACTIVE',
+                
+                    ]) ?>
+        </div>
+    </div>
+    
 
-    <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
+    <div class="row">
+        <div class="col-md-6">
+              <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'title_job')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'title_job')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, "gender")->dropDownList([1 => "ذكر", 2 => "انثى"]); ?>
-
-    <?= $form->field($model, 'governorate_id')->widget(
+    
+    <div class="row">
+        <div class="col-md-6">
+             <?= $form->field($model, "gender")->dropDownList([1 => "ذكر", 2 => "انثى"]); ?> 
+        </div>
+        <div class="col-md-6">
+        <?= $form->field($model, 'governorate_id')->widget(
                 Select2Widget::className(),
                 [
                     'items' => ArrayHelper::map(Governorate::find()->all(), 'id', 'name_ar')
                 ]
             ); ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'area_id')->widget(
+    <div class="row">
+        <div class="col-md-6">
+        <?= $form->field($model, 'area_id')->widget(
                 Select2Widget::className(),
                 [
                     'items' => ArrayHelper::map(Area::find()->all(), 'id', 'name_ar')
                 ]
             ); ?>
-
-
-    <?= $form->field($model, 'nationality_id')->widget(
+            
+        </div>
+        <div class="col-md-6">
+        <?= $form->field($model, 'nationality_id')->widget(
                 Select2Widget::className(),
                 [
                     'items' => ArrayHelper::map(Nationality::find()->all(), 'id', 'name_ar')
                 ]
             ); ?>
 
-    <?= $form->field($model, 'note')->textarea([ 'value' => $note]) ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'status_central')->dropDownList([
+   
+    <div class="row">
+        <div class="col-md-6">
+        <?= $form->field($model, 'note')->textarea([ 'value' => $note]) ?>
+            
+        </div>
+        <div class="col-md-6">
+        <?= $form->field($model, 'status_central')->dropDownList([
               -1=> 'USER_No_Action',
                2=> 'USER_OUT_OF_SERVICE' ,
                3 =>'USER_CALL_LATER' ,
@@ -77,6 +108,12 @@ $today=Carbon::now("Asia/Amman");
                8 =>'USER_UNAVAILABLE' ,
                9 =>'USER_BUSY'
             ,'value' => $status_user]) ?>
+
+        </div>
+    </div>
+
+    
+
 
     <?= $form->field($model, 'date_of_birth')->widget(DatePicker::classname(), [
                 'options' => ['placeholder' => Yii::t('app', 'Enter_date')],

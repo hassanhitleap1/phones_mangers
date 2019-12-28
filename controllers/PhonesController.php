@@ -86,24 +86,26 @@ class PhonesController extends BaseController
     {
         $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        
             if($model->userAction !=null){
                 $useraction=UserAction::find()->where(['user_id' => Yii::$app->user->id])->one();
-                $useraction->note=$model->note;
-                $useraction->status= $model->status_central;
+             
+                $useraction->note=isset($_POST['Phones']['note'])?$_POST['Phones']['note']:'';
+                $useraction->status=isset($_POST['Phones']['status_central'])?$_POST['Phones']['status_central']:-1;
                 $useraction->phone_id=$id;
                 $useraction->created_at=Carbon::now('Asia/Amman');
                 $useraction->save();
             }else{
                 $useraction=new UserAction;
-                $useraction->note=$model->note;
                 $useraction->user_id=Yii::$app->user->id;
-                $useraction->status= $model->status_central;
+                $useraction->note=isset($_POST['Phones']['note'])?$_POST['Phones']['note']:'';
+                $useraction->status=isset($_POST['Phones']['status_central'])?$_POST['Phones']['status_central']:-1;
                 $useraction->phone_id=$id;
                 $useraction->created_at=Carbon::now('Asia/Amman');
                 $useraction->updated_at=Carbon::now('Asia/Amman');
                 $useraction->save();
             }
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->renderAjax('update', [
