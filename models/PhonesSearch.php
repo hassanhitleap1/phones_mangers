@@ -17,8 +17,8 @@ class PhonesSearch extends Phones
     public function rules()
     {
         return [
-            [['id', 'type_phone', 'status', 'gender', 'governorate_id', 'area_id', 'nationality_id', 'order'], 'integer'],
-            [['phone_number', 'fullname', 'title_job', 'date_of_birth', 'created_at', 'updated_at'], 'safe'],
+            [['id', 'type_phone', 'status', 'gender', 'order'], 'integer'],
+            [['phone_number', 'fullname', 'title_job','governorate_id' ,'nationality_id','area_id','date_of_birth', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -48,6 +48,10 @@ class PhonesSearch extends Phones
             'query' => $query,
         ]);
 
+        $query->joinWith('area');
+        $query->joinWith('governorate'); 
+        $query->joinWith('nationality');  
+
         $this->load($params);
 
         if (!$this->validate()) {
@@ -62,9 +66,6 @@ class PhonesSearch extends Phones
             'type_phone' => $this->type_phone,
             'status' => $this->status,
             'gender' => $this->gender,
-            'governorate_id' => $this->governorate_id,
-            'area_id' => $this->area_id,
-            'nationality_id' => $this->nationality_id,
             'date_of_birth' => $this->date_of_birth,
             'order' => $this->order,
             'created_at' => $this->created_at,
@@ -73,6 +74,8 @@ class PhonesSearch extends Phones
 
         $query->andFilterWhere(['like', 'phone_number', $this->phone_number])
             ->andFilterWhere(['like', 'fullname', $this->fullname])
+            ->andFilterWhere(['like', 'nationality.name_ar', $this->nationality_id])
+            ->andFilterWhere(['like', 'governorate.name_ar', $this->governorate_id])
             ->andFilterWhere(['like', 'title_job', $this->title_job]);
 
         return $dataProvider;

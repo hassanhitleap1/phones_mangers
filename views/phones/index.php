@@ -97,7 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($searchModel){
                     return $searchModel->governorate['name_ar'];
                 },
-                'filter' =>[0=>"غير محدد",1=>" ذكر",2=>" انثى"],
+    
                 'format' => 'html',
             ],
             'area.name_ar',
