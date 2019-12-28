@@ -67,7 +67,7 @@ $today=Carbon::now("Asia/Amman");
     <?= $form->field($model, 'note')->textarea([ 'value' => $note]) ?>
 
     <?= $form->field($model, 'status_central')->dropDownList([
-                -1=> 'USER_No_Action',
+              -1=> 'USER_No_Action',
                2=> 'USER_OUT_OF_SERVICE' ,
                3 =>'USER_CALL_LATER' ,
                4=>' USER_NON_USER',
