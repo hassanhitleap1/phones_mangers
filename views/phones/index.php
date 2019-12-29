@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php Pjax::begin(); ?>
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
   
 
@@ -116,7 +116,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             },
 
                             'update' => function ($url, $model) {
-                                return Html::button(Yii::t('app', 'lead-update'), ['value' => $url,
+                                $urls=$_SERVER['QUERY_STRING'];
+                                $urls=$url.str_replace("r=phones%2Findex","", $urls);
+                                return Html::button('update', ['value' => $urls,
                                         'title' => Yii::t('app', 'lead-update'), 
                                         'class' => 'update-button btn btn-success','data-pjax' => 0]);
                             },
@@ -127,7 +129,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-    <?php Pjax::end(); ?>
 
 <?php
             

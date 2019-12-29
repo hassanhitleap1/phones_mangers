@@ -85,6 +85,8 @@ class PhonesController extends BaseController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+  
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
         
             if($model->userAction !=null){
@@ -105,7 +107,15 @@ class PhonesController extends BaseController
                 $useraction->updated_at=Carbon::now('Asia/Amman');
                 $useraction->save();
             }
-            return $this->redirect(['index']);
+
+            return $this->redirect(['index', 
+                    'page' => Yii::$app->request->getQueryParam('page', null),
+                    'fullname' => Yii::$app->request->getQueryParam('PhonesSearch')['fullname'],
+                    'title_job' => Yii::$app->request->getQueryParam('PhonesSearch') ['title_job'],
+                    'gender' => Yii::$app->request->getQueryParam('PhonesSearch') ['gender'],
+                    'governorate_id' => Yii::$app->request->getQueryParam('PhonesSearch') ['governorate_id'],
+                    'date_of_birth' => Yii::$app->request->getQueryParam('PhonesSearch') ['date_of_birth'],
+                ]);
         }
 
         return $this->renderAjax('update', [
