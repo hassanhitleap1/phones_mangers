@@ -3,10 +3,13 @@
 use app\models\Central;
 use app\models\User;
 use app\models\UserCreateor;
+use app\models\UserStaticClass;
 use conquer\select2\Select2Widget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+$type=User::USER_NORMAL;
+$heddinType=(!UserStaticClass::isSuperUser())?true:false;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\UserCreateor */
@@ -34,19 +37,22 @@ use yii\widgets\ActiveForm;
                         User::USER_NORMAL => Yii::t('app',"USER_NORMAL"),
                         User::USER_ADMIN => Yii::t('app',"USER_ADMIN"),
                         User::USER_SUPER_ADMIN => Yii::t('app',"USER_SUPER_ADMIN")
-                    ]) ?>
+             ],['value'=>$type,'disabled' =>$heddinType] ) ?>
 
-   <?= $form->field($model, 'super_admin_id')->widget(
-                Select2Widget::className(),
-                [
-                    'items' => ArrayHelper::map(UserCreateor::find()->where(['type'=>User::USER_ADMIN])->all(), 'id', 'username')
-                ]
-            ); ?>
+   <?php 
+            if(!$heddinType){
+                echo  $form->field($model, 'super_admin_id')->widget(
+                    Select2Widget::className(),
+                    [
+                        'items' => ArrayHelper::map(UserCreateor::find()->where(['type'=>User::USER_ADMIN])->all(), 'id', 'username')
+                    ]); 
+            }
+    ?>
 
     <?= $form->field($model, 'status')->dropDownList([
                         User::STATUS_ACTIVE => Yii::t('app',"STATUS_ACTIVE"),
                         User::STATUS_INACTIVE => Yii::t('app',"STATUS_INACTIVE")
-                    ])  ?>
+        ],['disabled' =>$heddinType])  ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

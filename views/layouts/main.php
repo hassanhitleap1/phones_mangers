@@ -42,6 +42,7 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Phones', 'url' => ['/phones/index']],
             ['label' => 'Users', 'url' => ['/user-createor/index']],
+            ['label' => 'Central', 'url' => ['/central/index']],
             Yii::$app->user->isGuest ? (
                 $guest_menuo
             ) : (
