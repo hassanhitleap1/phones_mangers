@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 $date=($model->isNewRecord)?Carbon::now("Asia/Amman"):$model->created_at;
 $note= ($model->userAction !=null) ? $model->userAction->note:''; ;
-$status_user=($model->userAction !=null) ? $model->userAction->status:-1;
+$status_user=($model->userAction !=null) ? $model->userAction->status:2;
 $today=Carbon::now("Asia/Amman");
 
 ?>
@@ -37,8 +37,8 @@ $today=Carbon::now("Asia/Amman");
         <div class="col-md-6">
 
         <?= $form->field($model, 'status')->dropDownList([
-                1=> 'ACTIVE',
-                0=> 'DISACTIVE',
+                1=> Yii::t('app','ACTIVE'),
+                0=> Yii::t('app','DISACTIVE'),
                 
                     ]) ?>
         </div>
@@ -98,16 +98,20 @@ $today=Carbon::now("Asia/Amman");
         </div>
         <div class="col-md-6">
         <?= $form->field($model, 'status_central')->dropDownList([
-              -1=> 'USER_No_Action',
-               2=> 'USER_OUT_OF_SERVICE' ,
-               3 =>'USER_CALL_LATER' ,
-               4=>' USER_NON_USER',
-               5 =>'USER_IT_WAS_AGREED ',
-               6 => 'USER_CLOSED',
-               7 =>'USER_DISCONNECTED' ,
-               8 =>'USER_UNAVAILABLE' ,
-               9 =>'USER_BUSY'
-            ,'value' => $status_user]) ?>
+               2=> Yii::t('app','USER_OUT_OF_SERVICE') ,
+               3 =>Yii::t('app','USER_CALL_LATER' ),
+               4=>Yii::t('app','USER_NON_USER'),
+               5 =>Yii::t('app','USER_IT_WAS_AGREED'),
+               6 => Yii::t('app','USER_CLOSED'),
+               7 =>Yii::t('app','USER_DISCONNECTED') ,
+               8 =>Yii::t('app','USER_UNAVAILABLE') ,
+               9 =>Yii::t('app','USER_BUSY')]
+            ,
+            ['options' =>
+                [                        
+                    $status_user => ['selected' => true]
+                ]
+            ]) ?>
 
         </div>
     </div>

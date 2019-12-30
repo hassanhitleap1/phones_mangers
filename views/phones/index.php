@@ -53,28 +53,28 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($searchModel) {
                     if($searchModel->userAction !=null){
                         if ($searchModel->userAction->status==UserAction::USER_BUSY){
-                            return "USER_BUSY";
+                            return Yii::t('app',"USER_BUSY");
                         }elseif ($searchModel->userAction->status == UserAction::USER_CALL_LATER) {
                             # code...
-                            return "USER_CALL_LATER";
+                            return Yii::t('app',"USER_CALL_LATER");
                         }elseif ($searchModel->userAction->status == UserAction::USER_CLOSED) {
                             # code...
-                            return "USER_CLOSED";
+                            return Yii::t('app',"USER_CLOSED");
                         } elseif ($searchModel->userAction->status == UserAction::USER_DISCONNECTED) {
                             # code...
-                            return "USER_DISCONNECTED";
+                            return Yii::t('app',"USER_DISCONNECTED");
                         } elseif ($searchModel->userAction->status == UserAction::USER_IT_WAS_AGREED) {
                             # code...
-                            return "USER_IT_WAS_AGREED";
+                            return Yii::t('app',"USER_IT_WAS_AGREED");
                         } elseif ($searchModel->userAction->status == UserAction::USER_OUT_OF_SERVICE) {
                             # code...
-                            return "USER_OUT_OF_SERVICE";
+                            return Yii::t('app',"USER_OUT_OF_SERVICE");
                         } elseif ($searchModel->userAction->status == UserAction::USER_UNAVAILABLE) {
                             # code...
-                            return "USER_UNAVAILABLE";
+                            return Yii::t('app',"USER_UNAVAILABLE");
                         } elseif ($searchModel->userAction->status == UserAction::USER_NON_USER) {
                             # code...
-                            return "USER_NON_USER";
+                            return Yii::t('app',"USER_NON_USER");
                         }else{
                             # code...
                              return $searchModel->userAction->status;
@@ -83,13 +83,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         
                     }elseif($searchModel->status==Phones::ACTIVE) {
                         # code...
-                        return "ACTIVE";
+                        return Yii::t('app',"ACTIVE");
                     }else{
-                       return "disactive";
+                       return Yii::t('app',"DISACTIVE");
                     }
                                          
                 },
                 'format' => 'html',
+                'filter' =>[ Phones::ACTIVE=>'ACTIVE',Phones::DISACTIVE=>'DISACTIVE']
             ],
 
             [
