@@ -94,14 +94,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute' => 'governorate_id',
-                'value' => function($searchModel){
-                    return $searchModel->governorate['name_ar'];
-                },
-    
-                'format' => 'html',
+                'value' => 'governorate_id.name_ar',
             ],
-            'area.name_ar',
-            'nationality.name_ar',
+          
+            [
+                'attribute' => 'area_id',
+                'value' => 'area.name_ar',
+            ],
+            [
+                'attribute' => 'nationality_id',
+                'value' => 'nationality.name_ar',
+            ],
             'date_of_birth',
             //'order',
             //'created_at',

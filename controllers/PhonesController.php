@@ -95,6 +95,7 @@ class PhonesController extends BaseController
                 $useraction->note=isset($_POST['Phones']['note'])?$_POST['Phones']['note']:'';
                 $useraction->status=isset($_POST['Phones']['status_central'])?$_POST['Phones']['status_central']:-1;
                 $useraction->phone_id=$id;
+                $useraction->central_id=(Yii::$app->user->identity->central_id !=null)?Yii::$app->user->identity->central_id:-1 ;
                 $useraction->created_at=Carbon::now('Asia/Amman');
                 $useraction->save();
             }else{
@@ -103,6 +104,7 @@ class PhonesController extends BaseController
                 $useraction->note=isset($_POST['Phones']['note'])?$_POST['Phones']['note']:'';
                 $useraction->status=isset($_POST['Phones']['status_central'])?$_POST['Phones']['status_central']:-1;
                 $useraction->phone_id=$id;
+                $useraction->central_id=(Yii::$app->user->identity->central_id !=null)?Yii::$app->user->identity->central_id:-1 ;
                 $useraction->created_at=Carbon::now('Asia/Amman');
                 $useraction->updated_at=Carbon::now('Asia/Amman');
                 $useraction->save();
@@ -115,6 +117,7 @@ class PhonesController extends BaseController
                     'gender' => Yii::$app->request->getQueryParam('PhonesSearch') ['gender'],
                     'governorate_id' => Yii::$app->request->getQueryParam('PhonesSearch') ['governorate_id'],
                     'date_of_birth' => Yii::$app->request->getQueryParam('PhonesSearch') ['date_of_birth'],
+                    'sort'=> Yii::$app->request->getQueryParam('sort',null) ,
                 ]);
         }
 

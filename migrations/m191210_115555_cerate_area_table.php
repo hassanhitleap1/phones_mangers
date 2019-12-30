@@ -8,7 +8,6 @@ use yii\db\Migration;
 class m191210_115555_cerate_area_table extends Migration
 {
     public $data = [
-        ['name_ar' => 'لا يهم'],
         ['name_ar' => 'عبدون الجنوبي'],
         ['name_ar' => 'عبدون الشمالي '],
         ['name_ar' => 'ابو علندا '],
@@ -224,8 +223,6 @@ class m191210_115555_cerate_area_table extends Migration
         ['name_ar' => 'زحر'],
         ['name_ar' => 'زمال'], 
         ['name_ar' => 'زوبيا'],
-
-
         ['name_ar' => 'الرصيفة'],
         ['name_ar' => 'وسط البلد الزرقاء '],
         ['name_ar' => 'الزرقاء الجديده '],

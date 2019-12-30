@@ -7,7 +7,7 @@ use yii\db\Migration;
  */
 class m191210_115306_cerate_nationality_table extends Migration
 {
-    public $data=[['name_ar' => 'لا يهم'],['name_ar'=>'اردني'],['name_ar' => 'فلسطيني'],['name_ar' => 'سوري'], ['name_ar' => 'جبوتي'], 
+    public $data=[['name_ar'=>'اردني'],['name_ar' => 'فلسطيني'],['name_ar' => 'سوري'], ['name_ar' => 'جبوتي'], 
             ['name_ar' => 'لبناني'], ['name_ar' => 'سعودي'], 
             ['name_ar' => 'قطري'], ['name_ar' => 'كويتي'], ['name_ar' => 'اماراتي'],
             ['name_ar' => 'يمني'], ['name_ar' => 'عماني'],
@@ -16,9 +16,7 @@ class m191210_115306_cerate_nationality_table extends Migration
             ['name_ar' => 'مورتاني'], ['name_ar' => 'عراقي'], ['name_ar' => 'صومالي'],
             ['name_ar' => 'ليبي']
         ];
-        public $data2 = ['اردني', 'فلسطيني','سوري','جبوتي',
-            'لبناني', 'سعودي', 'قطري','كويتي', 'اماراتي','يمني','عماني','بحريني', 'مصري', 'سوداني', 'جزائري', 'تونسي', 'مغربي','مورتاني','عراقي','صومالي', 'ليبي'];
-
+      
         public function up()
         {
             $tableOptions = null;

@@ -20,6 +20,7 @@ class m191210_105402_cerate_action_user_table extends Migration
             'status' => $this->smallInteger(),
             'user_id' => $this->integer(),
             'note' => $this->text(),
+            'central_id'=> $this->integer(),
             'created_at' => $this->dateTime(),
             'updated_at' => $this->dateTime(),
         ], $tableOptions);
