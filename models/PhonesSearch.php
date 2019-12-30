@@ -5,6 +5,7 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Phones;
+use Yii;
 
 /**
  * PhonesSearch represents the model behind the search form of `app\models\Phones`.
@@ -59,6 +60,15 @@ class PhonesSearch extends Phones
             // $query->where('0=1');
             return $dataProvider;
         }
+        
+      
+
+        // if($this->status >= 2){
+        //     $subQuery = UserAction::find()->select('phone_id')
+        //     ->where(['user_id'=> Yii::$app->user->id])
+        //     ->andWhere(['status'=>$this->status]);
+        //     $query->andWhere(['in', 'id', $subQuery]); 
+        // }
 
         // grid filtering conditions
         $query->andFilterWhere([
@@ -71,6 +81,9 @@ class PhonesSearch extends Phones
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+
+
+        
 
         $query->andFilterWhere(['like', 'phone_number', $this->phone_number])
             ->andFilterWhere(['like', 'fullname', $this->fullname])

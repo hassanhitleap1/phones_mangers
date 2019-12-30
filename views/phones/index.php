@@ -90,7 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                          
                 },
                 'format' => 'html',
-                'filter' =>[ Phones::ACTIVE=>'ACTIVE',Phones::DISACTIVE=>'DISACTIVE']
+                'filter' =>[ Phones::ACTIVE=>Yii::t('app','ACTIVE'),Phones::DISACTIVE=>Yii::t('app','DISACTIVE'),UserAction::USER_BUSY=>Yii::t('app',"USER_BUSY")]
             ],
 
             [
