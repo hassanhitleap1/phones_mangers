@@ -5,6 +5,7 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\UserCreateor;
+use Yii;
 
 /**
  * UserCreateorSearch represents the model behind the search form of `app\models\UserCreateor`.
@@ -42,6 +43,8 @@ class UserCreateorSearch extends UserCreateor
     {
         $query = UserCreateor::find();
 
+        
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -55,7 +58,9 @@ class UserCreateorSearch extends UserCreateor
             // $query->where('0=1');
             return $dataProvider;
         }
-
+        if(UserStaticClass::isAdminUser()){
+            $query->where(['central_id'=> Yii::$app->user->identity->central_id]); 
+        }
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,

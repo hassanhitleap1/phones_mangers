@@ -85,4 +85,12 @@ class UserCreateor extends \yii\db\ActiveRecord
         }
         return false;
     }
+
+        /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCentral()
+    {
+        return $this->hasOne(Central::className(), ['id' => 'central_id']);
+    }
 }

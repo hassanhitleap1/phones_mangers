@@ -33,7 +33,11 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'password_hash',
             // 'password_reset_token',
             'email:email',
-            'central_id',
+            // 'central_id',
+            [
+              'attribute' =>'central_id',
+              'value'=>'central.name_ar'
+            ],
             'type',
             'super_admin_id',
             'status',

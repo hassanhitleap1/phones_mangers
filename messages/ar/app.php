@@ -56,4 +56,8 @@ return [
     'USER_NON_USER'=>'الرقم غير مستخدم',
     'DISACTIVE'=>'غير فعال',
     'ACTIVE'=>'فعال',
+    'Email'=>'البريد الاليكتروني',
+    'Central_ID'=>'المركز',
+    'Type'=>'النوع',
+    'Super_Admin_ID'=>'المدير',
 ];

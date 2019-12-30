@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Central;
 use app\models\CentralSearch;
+use app\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -14,12 +15,28 @@ use yii\filters\VerbFilter;
  */
 class CentralController extends Controller
 {
-    /**
+      /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'only' => ['index', 'view','create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'actions' => ['index', 'view','create', 'update', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            return Yii::$app->user->identity->type == User::USER_SUPER_ADMIN ;
+
+                        }
+                    ],
+                ],
+            ],  
+            
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

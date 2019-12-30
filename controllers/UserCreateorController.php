@@ -30,7 +30,7 @@ class UserCreateorController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                         'matchCallback' => function ($rule, $action) {
-                            return Yii::$app->user->identity->type == User::USER_SUPER_ADMIN;
+                            return Yii::$app->user->identity->type == User::USER_SUPER_ADMIN ||  Yii::$app->user->identity->type == User::USER_ADMIN;
 
                         }
                     ],
