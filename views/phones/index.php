@@ -90,7 +90,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                          
                 },
                 'format' => 'html',
-                'filter' =>[ Phones::ACTIVE=>Yii::t('app','ACTIVE'),Phones::DISACTIVE=>Yii::t('app','DISACTIVE'),UserAction::USER_BUSY=>Yii::t('app',"USER_BUSY")]
+                'filter' =>[ Phones::ACTIVE=>Yii::t('app','ACTIVE'),
+                Phones::DISACTIVE=>Yii::t('app','DISACTIVE'),
+                UserAction::USER_OUT_OF_SERVICE=>Yii::t('app','USER_OUT_OF_SERVICE'),
+                UserAction::USER_CALL_LATER=>Yii::t('app','USER_CALL_LATER'),
+                UserAction::USER_NON_USER=>Yii::t('app','USER_NON_USER'),
+                UserAction::USER_IT_WAS_AGREED=>Yii::t('app','USER_IT_WAS_AGREED'),
+                UserAction::USER_CLOSED=>Yii::t('app','USER_CLOSED'),
+                UserAction::USER_DISCONNECTED=>Yii::t('app','USER_DISCONNECTED'),
+                UserAction::USER_UNAVAILABLE=>Yii::t('app','USER_UNAVAILABLE'),
+                UserAction::USER_BUSY=>Yii::t('app','USER_BUSY'),
+                ]
             ],
 
             [

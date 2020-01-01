@@ -63,12 +63,12 @@ class PhonesSearch extends Phones
         
       
 
-        // if($this->status >= 2){
-        //     $subQuery = UserAction::find()->select('phone_id')
-        //     ->where(['user_id'=> Yii::$app->user->id])
-        //     ->andWhere(['status'=>$this->status]);
-        //     $query->andWhere(['in', 'id', $subQuery]); 
-        // }
+        if($this->status >= 2){
+            $subQuery = UserAction::find()->select('phone_id')
+            ->where(['user_id'=> Yii::$app->user->id])
+            ->andWhere(['status'=>$this->status]);
+            $query->andWhere(['in', 'phones.id', $subQuery]); 
+        }
 
         // grid filtering conditions
         $query->andFilterWhere([
