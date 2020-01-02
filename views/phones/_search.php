@@ -1,5 +1,10 @@
 <?php
 
+use app\models\User;
+use Carbon\Carbon;
+use conquer\select2\Select2Widget;
+use kartik\date\DatePicker;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -18,33 +23,42 @@ use yii\widgets\ActiveForm;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'phone_number') ?>
+<div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'users')->widget(
+                Select2Widget::className(),
+                [
+                    'items' => ArrayHelper::map(User::find()->all(), 'id', 'username')
+                ]
+            ); ?>
 
-    <?= $form->field($model, 'type_phone') ?>
+            
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'created_at_action')->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => Yii::t('app', 'updated_at')],
+                    'value' => Carbon::now('Asia/Amman')->toDateString(),
+                    'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                    // 'value'=>Carbon::now('Asia/Amman')->toDateString(),
+                    // 'pickerIcon' => '<i class=" text-primary"></i>',
+                    // 'removeIcon' => '<i class="fas fa-trash text-danger"></i>',
+                    'pluginOptions' => [
+                        'todayHighlight' => true,
+                        'todayBtn' => true,
+                        'autoclose' => false,
+                        'format' => 'yyyy-mm-dd',
 
-    <?= $form->field($model, 'status') ?>
 
-    <?= $form->field($model, 'fullname') ?>
+                    ]
+                ]); ?>
 
-    <?php // echo $form->field($model, 'title_job') ?>
+       
 
-    <?php // echo $form->field($model, 'gender') ?>
+        </div>
+    </div>
 
-    <?php // echo $form->field($model, 'governorate_id') ?>
 
-    <?php // echo $form->field($model, 'area_id') ?>
-
-    <?php // echo $form->field($model, 'nationality_id') ?>
-
-    <?php // echo $form->field($model, 'date_of_birth') ?>
-
-    <?php // echo $form->field($model, 'order') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

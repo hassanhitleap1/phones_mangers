@@ -35,6 +35,8 @@ class Phones extends \yii\db\ActiveRecord
 
     public $note;
     public $status_central;
+    public $users;
+    public $created_at_action;
 
     
     /**

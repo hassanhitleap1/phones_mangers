@@ -19,7 +19,7 @@ class PhonesSearch extends Phones
     {
         return [
             [['id', 'type_phone', 'status', 'gender', 'order'], 'integer'],
-            [['phone_number', 'fullname', 'title_job','governorate_id' ,'nationality_id','area_id','date_of_birth', 'created_at', 'updated_at'], 'safe'],
+            [['phone_number', 'fullname', 'title_job','governorate_id' ,'nationality_id','area_id','date_of_birth', 'created_at', 'updated_at','created_at_action'], 'safe'],
         ];
     }
 
@@ -62,7 +62,22 @@ class PhonesSearch extends Phones
         }
         
       
+        $subQuery = UserAction::find()->select('phone_id');
+        if(UserStaticClass::isNormalUser()){
+            $subQuery->where(['user_id'=> Yii::$app->user->id]);
+        }elseif(UserStaticClass::isAdminUser()){
+            $subQuery->where(['central_id'=> Yii::$app->user->identity->central_id]);
+        }
 
+        if($this->status >= 2){
+            $subQuery->andWhere(['status'=>$this->status]);    
+        }
+       
+        if($this->created_at_action !='')  {
+            $subQuery->andWhere(['created_at'=>$this->created_at_action]);    
+        }  
+        echo $subQuery->
+         $query->orWhere(['in', 'phones.id', $subQuery]); 
       
 
         // grid filtering conditions
@@ -86,12 +101,7 @@ class PhonesSearch extends Phones
             ->andFilterWhere(['like', 'governorate.name_ar', $this->governorate_id])
             ->andFilterWhere(['like', 'title_job', $this->title_job]);
 
-        if($this->status >= 2){
-                $subQuery = UserAction::find()->select('phone_id')
-                ->where(['user_id'=> Yii::$app->user->id])
-                ->andWhere(['status'=>$this->status]);
-                $query->orWhere(['in', 'phones.id', $subQuery]); 
-        }    
+
 
         return $dataProvider;
     }
