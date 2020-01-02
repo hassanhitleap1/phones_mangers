@@ -112,11 +112,11 @@ class PhonesController extends BaseController
 
             return $this->redirect(['index', 
                     'page' => Yii::$app->request->getQueryParam('page', null),
-                    'fullname' => Yii::$app->request->getQueryParam('PhonesSearch')['fullname'],
-                    'title_job' => Yii::$app->request->getQueryParam('PhonesSearch') ['title_job'],
-                    'gender' => Yii::$app->request->getQueryParam('PhonesSearch') ['gender'],
-                    'governorate_id' => Yii::$app->request->getQueryParam('PhonesSearch') ['governorate_id'],
-                    'date_of_birth' => Yii::$app->request->getQueryParam('PhonesSearch') ['date_of_birth'],
+                    'PhonesSearch[fullname]' => Yii::$app->request->getQueryParam('PhonesSearch')['fullname'],
+                    'PhonesSearch[title_job]' => Yii::$app->request->getQueryParam('PhonesSearch') ['title_job'],
+                    'PhonesSearch[gender]' => Yii::$app->request->getQueryParam('PhonesSearch') ['gender'],
+                    'PhonesSearch[governorate_id]' => Yii::$app->request->getQueryParam('PhonesSearch') ['governorate_id'],
+                    'PhonesSearch[date_of_birth]' => Yii::$app->request->getQueryParam('PhonesSearch') ['date_of_birth'],
                     'sort'=> Yii::$app->request->getQueryParam('sort',null) ,
                 ]);
         }
