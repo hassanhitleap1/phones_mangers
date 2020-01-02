@@ -65,4 +65,6 @@ return [
     'USER_NORMAL'=>"مستخدم عادي",
     'USER_ADMIN'=>"مستخدم مدير",
     'USER_SUPER_ADMIN'=>"مستخدم مدير المدير",
+    "From"=>'من',
+    "To"=>"الى"
 ];

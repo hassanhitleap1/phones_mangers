@@ -37,6 +37,8 @@ class Phones extends \yii\db\ActiveRecord
     public $status_central;
     public $users;
     public $created_at_action;
+    public $from;
+    public $to;
 
     
     /**
@@ -81,6 +83,8 @@ class Phones extends \yii\db\ActiveRecord
             'updated_at' => Yii::t('app', 'Updated_At'),
             'status_central' => Yii::t('app', 'Status'),
             'note'=>Yii::t('app', 'Note'),
+            'from'=>Yii::t('app', 'From'),
+            'to'=>Yii::t('app', 'To'),
         ];
     }
 

@@ -31,7 +31,7 @@ $users=(UserStaticClass::isSuperUser())?
 
 <div class="row">
         <?php if(!UserStaticClass::isNormalUser()):?>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <?= $form->field($model, 'users')->widget(
                 Select2Widget::className(),
                 [
@@ -42,9 +42,30 @@ $users=(UserStaticClass::isSuperUser())?
             
         </div>
         <?php endif;?>
-        <div class="col-md-6">
-            <?= $form->field($model, 'created_at_action')->widget(DatePicker::classname(), [
-                    'options' => ['placeholder' => Yii::t('app', 'created_at_action')],
+        <div class="col-md-4">
+            <?= $form->field($model, 'from')->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => Yii::t('app', 'From')],
+                    'value' => Carbon::now('Asia/Amman')->toDateString(),
+                    'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                    // 'value'=>Carbon::now('Asia/Amman')->toDateString(),
+                    // 'pickerIcon' => '<i class=" text-primary"></i>',
+                    // 'removeIcon' => '<i class="fas fa-trash text-danger"></i>',
+                    'pluginOptions' => [
+                        'todayHighlight' => true,
+                        'todayBtn' => true,
+                        'autoclose' => false,
+                        'format' => 'yyyy-mm-dd',
+
+
+                    ]
+                ]); ?>
+
+       
+
+        </div>
+        <div class="col-md-4">
+            <?= $form->field($model, 'to')->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => Yii::t('app', 'To')],
                     'value' => Carbon::now('Asia/Amman')->toDateString(),
                     'type' => DatePicker::TYPE_COMPONENT_APPEND,
                     // 'value'=>Carbon::now('Asia/Amman')->toDateString(),
