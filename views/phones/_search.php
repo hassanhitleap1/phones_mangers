@@ -1,13 +1,18 @@
 <?php
 
 use app\models\User;
+use app\models\UserStaticClass;
 use Carbon\Carbon;
 use conquer\select2\Select2Widget;
 use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+$users=(UserStaticClass::isSuperUser())?
+            User::find()->all():
+            (UserStaticClass::isAdminUser())?
+                User::find()->where(['central_id'=> Yii::$app->user->identity->central_id])->all():
+                        User::find()->where(['id'=> Yii::$app->user->id])->all();
 /* @var $this yii\web\View */
 /* @var $model app\models\PhonesSearch */
 /* @var $form yii\widgets\ActiveForm */
@@ -25,19 +30,21 @@ use yii\widgets\ActiveForm;
 
 
 <div class="row">
+        <?php if(!UserStaticClass::isNormalUser()):?>
         <div class="col-md-6">
             <?= $form->field($model, 'users')->widget(
                 Select2Widget::className(),
                 [
-                    'items' => ArrayHelper::map(User::find()->all(), 'id', 'username')
+                    'items' => ArrayHelper::map($users, 'id', 'username')
                 ]
             ); ?>
 
             
         </div>
+        <?php endif;?>
         <div class="col-md-6">
             <?= $form->field($model, 'created_at_action')->widget(DatePicker::classname(), [
-                    'options' => ['placeholder' => Yii::t('app', 'updated_at')],
+                    'options' => ['placeholder' => Yii::t('app', 'created_at_action')],
                     'value' => Carbon::now('Asia/Amman')->toDateString(),
                     'type' => DatePicker::TYPE_COMPONENT_APPEND,
                     // 'value'=>Carbon::now('Asia/Amman')->toDateString(),

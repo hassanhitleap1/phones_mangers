@@ -76,8 +76,8 @@ class PhonesSearch extends Phones
         if($this->created_at_action !='')  {
             $subQuery->andWhere(['created_at'=>$this->created_at_action]);    
         }  
-        echo $subQuery->
-         $query->orWhere(['in', 'phones.id', $subQuery]); 
+       
+        
       
 
         // grid filtering conditions
@@ -93,7 +93,7 @@ class PhonesSearch extends Phones
         ]);
 
 
-        
+       
 
         $query->andFilterWhere(['like', 'phone_number', $this->phone_number])
             ->andFilterWhere(['like', 'fullname', $this->fullname])
@@ -101,7 +101,9 @@ class PhonesSearch extends Phones
             ->andFilterWhere(['like', 'governorate.name_ar', $this->governorate_id])
             ->andFilterWhere(['like', 'title_job', $this->title_job]);
 
-
+        if($this->status >= 2 || $this->created_at_action !='' ){
+            $query->orWhere(['in', 'phones.id', $subQuery]); 
+        }
 
         return $dataProvider;
     }
