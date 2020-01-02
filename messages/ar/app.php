@@ -60,4 +60,9 @@ return [
     'Central_ID'=>'المركز',
     'Type'=>'النوع',
     'Super_Admin_ID'=>'المدير',
+    'STATUS_INACTIVE'=>"مستخدم غير مفعل ",
+    'STATUS_ACTIVE'=>"مستخدم مفعل ",
+    'USER_NORMAL'=>"مستخدم عادي",
+    'USER_ADMIN'=>"مستخدم مدير",
+    'USER_SUPER_ADMIN'=>"مستخدم مدير المدير",
 ];

@@ -43,11 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' =>'type',
                 'value'=>function($searchModel){
                     if($searchModel->type == UserStaticClass::USER_NORMAL){
-                        return "USER_NORMAL";
+                        return Yii::t("app","USER_NORMAL");
                     }elseif($searchModel->type == UserStaticClass::USER_ADMIN){
-                        return "USER_ADMIN";
+                        return Yii::t("app","USER_ADMIN");
                     }else{
-                        return "USER_SUPER_ADMIN";
+                        return Yii::t("app","USER_SUPER_ADMIN");
                     }
 
                     
@@ -59,9 +59,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' =>'status',
                 'value'=>function($searchModel){
                     if($searchModel->type == UserStaticClass::STATUS_ACTIVE){
-                        return "STATUS_ACTIVE";
+                        return Yii::t("app","STATUS_ACTIVE");
                     }else{
-                        return "STATUS_INACTIVE";
+                        return Yii::t("app","STATUS_INACTIVE");
                     }
 
                     
