@@ -76,6 +76,10 @@ class PhonesSearch extends Phones
         if($this->created_at_action !='')  {
             $subQuery->andWhere(['created_at'=>$this->created_at_action]);    
         }  
+
+        if($this->from !='' &&  $this->to !='')  {
+            $subQuery->andWhere(['between', 'created_at', $this->from , $this->to ]);
+        } 
        
         
       
@@ -101,7 +105,7 @@ class PhonesSearch extends Phones
             ->andFilterWhere(['like', 'governorate.name_ar', $this->governorate_id])
             ->andFilterWhere(['like', 'title_job', $this->title_job]);
 
-        if($this->status >= 2 || $this->created_at_action !='' ){
+        if($this->status >= 2 || $this->created_at_action !='' || $this->from){
             $query->orWhere(['in', 'phones.id', $subQuery]); 
         }
 

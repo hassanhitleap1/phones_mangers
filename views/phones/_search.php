@@ -8,6 +8,8 @@ use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+$from =isset($_GET['PhonesSearch[from]'])?$_GET['PhonesSearch[from]']: Carbon::now('Asia/Amman')->toDateString();
+$to =isset($_GET['PhonesSearch[to]'])?$_GET['PhonesSearch[to]']: Carbon::now('Asia/Amman')->toDateString();
 $users=(UserStaticClass::isSuperUser())?
             User::find()->all():
             (UserStaticClass::isAdminUser())?
@@ -19,7 +21,7 @@ $users=(UserStaticClass::isSuperUser())?
 ?>
 
 <div class="phones-search">
-
+   
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
@@ -44,8 +46,8 @@ $users=(UserStaticClass::isSuperUser())?
         <?php endif;?>
         <div class="col-md-4">
             <?= $form->field($model, 'from')->widget(DatePicker::classname(), [
-                    'options' => ['placeholder' => Yii::t('app', 'From')],
-                    'value' => Carbon::now('Asia/Amman')->toDateString(),
+                    'options' => ['placeholder' => Yii::t('app', 'From'), 'value' => $from,],
+                    'value' =>$from,
                     'type' => DatePicker::TYPE_COMPONENT_APPEND,
                     // 'value'=>Carbon::now('Asia/Amman')->toDateString(),
                     // 'pickerIcon' => '<i class=" text-primary"></i>',
@@ -65,8 +67,11 @@ $users=(UserStaticClass::isSuperUser())?
         </div>
         <div class="col-md-4">
             <?= $form->field($model, 'to')->widget(DatePicker::classname(), [
-                    'options' => ['placeholder' => Yii::t('app', 'To')],
-                    'value' => Carbon::now('Asia/Amman')->toDateString(),
+                    'options' => [
+                        'placeholder' => Yii::t('app', 'To'),
+                        'value' => $to,
+                        ],
+                    'value' => $to,
                     'type' => DatePicker::TYPE_COMPONENT_APPEND,
                     // 'value'=>Carbon::now('Asia/Amman')->toDateString(),
                     // 'pickerIcon' => '<i class=" text-primary"></i>',
@@ -76,9 +81,11 @@ $users=(UserStaticClass::isSuperUser())?
                         'todayBtn' => true,
                         'autoclose' => false,
                         'format' => 'yyyy-mm-dd',
+                        'value' => $to,
 
 
-                    ]
+                    ],
+                   
                 ]); ?>
 
        
