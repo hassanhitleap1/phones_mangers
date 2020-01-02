@@ -63,12 +63,7 @@ class PhonesSearch extends Phones
         
       
 
-        if($this->status >= 2){
-            $subQuery = UserAction::find()->select('phone_id')
-            ->where(['user_id'=> Yii::$app->user->id])
-            ->andWhere(['status'=>$this->status]);
-            $query->andWhere(['in', 'phones.id', $subQuery]); 
-        }
+      
 
         // grid filtering conditions
         $query->andFilterWhere([
@@ -90,6 +85,13 @@ class PhonesSearch extends Phones
             ->andFilterWhere(['like', 'nationality.name_ar', $this->nationality_id])
             ->andFilterWhere(['like', 'governorate.name_ar', $this->governorate_id])
             ->andFilterWhere(['like', 'title_job', $this->title_job]);
+
+        if($this->status >= 2){
+                $subQuery = UserAction::find()->select('phone_id')
+                ->where(['user_id'=> Yii::$app->user->id])
+                ->andWhere(['status'=>$this->status]);
+                $query->orWhere(['in', 'phones.id', $subQuery]); 
+        }    
 
         return $dataProvider;
     }
