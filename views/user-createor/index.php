@@ -1,5 +1,6 @@
 <?php
 
+use app\models\UserStaticClass;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -38,9 +39,34 @@ $this->params['breadcrumbs'][] = $this->title;
               'attribute' =>'central_id',
               'value'=>'central.name_ar'
             ],
-            'type',
+            [
+                'attribute' =>'type',
+                'value'=>function($searchModel){
+                    if($searchModel->type == UserStaticClass::USER_NORMAL){
+                        return "USER_NORMAL";
+                    }elseif($searchModel->type == UserStaticClass::USER_ADMIN){
+                        return "USER_ADMIN";
+                    }else{
+                        return "USER_SUPER_ADMIN";
+                    }
+
+                    
+                }
+              ],
+            
             'super_admin_id',
-            'status',
+            [
+                'attribute' =>'status',
+                'value'=>function($searchModel){
+                    if($searchModel->type == UserStaticClass::STATUS_ACTIVE){
+                        return "STATUS_ACTIVE";
+                    }else{
+                        return "STATUS_INACTIVE";
+                    }
+
+                    
+                }
+              ],
             'created_at',
             //'updated_at',
             //'verification_token',
