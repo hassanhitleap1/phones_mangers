@@ -40,6 +40,7 @@ class Phones extends \yii\db\ActiveRecord
     public $from;
     public $to;
 
+
     
     /**
      * {@inheritdoc}
@@ -131,6 +132,17 @@ class Phones extends \yii\db\ActiveRecord
      */
     public function getUserAction()
     {
-        return $this->hasOne(UserAction::className(), ['phone_id' => 'id'])->where(['user_id' => Yii::$app->user->id]); //, 
+        return $this->hasOne(UserAction::className(), ['phone_id' => 'id'])
+            ->where(['user_id' => Yii::$app->user->id])
+            ->orderBy('created_at','ASC');
+    }
+
+      /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserActions()
+    {
+        return $this->hasMany(UserAction::className(), ['phone_id' => 'id'])
+        ->where(['user_id' => Yii::$app->user->id]);
     }
 }

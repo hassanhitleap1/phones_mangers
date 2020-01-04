@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Phones;
 use app\models\User;
 use app\models\UserStaticClass;
 use Carbon\Carbon;
@@ -33,7 +34,7 @@ $users=(UserStaticClass::isSuperUser())?
 
 <div class="row">
         <?php if(!UserStaticClass::isNormalUser()):?>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <?= $form->field($model, 'users')->widget(
                 Select2Widget::className(),
                 [
@@ -44,7 +45,7 @@ $users=(UserStaticClass::isSuperUser())?
             
         </div>
         <?php endif;?>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <?= $form->field($model, 'from')->widget(DatePicker::classname(), [
                     'options' => ['placeholder' => Yii::t('app', 'From'), 'value' => $from,],
                     'value' =>$from,
@@ -65,7 +66,7 @@ $users=(UserStaticClass::isSuperUser())?
        
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <?= $form->field($model, 'to')->widget(DatePicker::classname(), [
                     'options' => [
                         'placeholder' => Yii::t('app', 'To'),
@@ -87,6 +88,16 @@ $users=(UserStaticClass::isSuperUser())?
                     ],
                    
                 ]); ?>
+
+       
+
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'type_phone')->dropDownList([
+                Phones::UMNIAH=>Yii::t('app','UMNIAH'),
+                Phones::ZAIN=>Yii::t('app','ZAIN'),
+                Phones::ORANGE=>Yii::t('app','ORANGE'),
+            ]); ?>
 
        
 

@@ -66,5 +66,6 @@ return [
     'USER_ADMIN'=>"مستخدم مدير",
     'USER_SUPER_ADMIN'=>"مستخدم مدير المدير",
     "From"=>'من',
-    "To"=>"الى"
+    "To"=>"الى",
+    'Type_Phone'=>'نوع الخط',
 ];

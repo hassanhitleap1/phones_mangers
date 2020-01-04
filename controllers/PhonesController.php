@@ -89,26 +89,16 @@ class PhonesController extends BaseController
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
         
-            if($model->userAction !=null){
-                $useraction=UserAction::find()->where(['user_id' => Yii::$app->user->id])->one();
-             
-                $useraction->note=isset($_POST['Phones']['note'])?$_POST['Phones']['note']:'';
-                $useraction->status=isset($_POST['Phones']['status_central'])?$_POST['Phones']['status_central']:-1;
-                $useraction->phone_id=$id;
-                $useraction->central_id=(Yii::$app->user->identity->central_id !=null)?Yii::$app->user->identity->central_id:-1 ;
-                $useraction->created_at=Carbon::now('Asia/Amman');
-                $useraction->save();
-            }else{
-                $useraction=new UserAction;
-                $useraction->user_id=Yii::$app->user->id;
-                $useraction->note=isset($_POST['Phones']['note'])?$_POST['Phones']['note']:'';
-                $useraction->status=isset($_POST['Phones']['status_central'])?$_POST['Phones']['status_central']:-1;
-                $useraction->phone_id=$id;
-                $useraction->central_id=(Yii::$app->user->identity->central_id !=null)?Yii::$app->user->identity->central_id:-1 ;
-                $useraction->created_at=Carbon::now('Asia/Amman');
-                $useraction->updated_at=Carbon::now('Asia/Amman');
-                $useraction->save();
-            }
+            $useraction=new UserAction;
+            $useraction->user_id=Yii::$app->user->id;
+            $useraction->note=isset($_POST['Phones']['note'])?$_POST['Phones']['note']:'';
+            $useraction->status=isset($_POST['Phones']['status_central'])?$_POST['Phones']['status_central']:-1;
+            $useraction->phone_id=$id;
+            $useraction->central_id=(Yii::$app->user->identity->central_id !=null)?Yii::$app->user->identity->central_id:-1 ;
+            $useraction->created_at=Carbon::now('Asia/Amman');
+            $useraction->updated_at=Carbon::now('Asia/Amman');
+            $useraction->save();
+            
 
             return $this->redirect(['index', 
                     'page' => Yii::$app->request->getQueryParam('page', null),

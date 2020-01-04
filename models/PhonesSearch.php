@@ -76,9 +76,13 @@ class PhonesSearch extends Phones
         if($this->created_at_action !='')  {
             $subQuery->andWhere(['created_at'=>$this->created_at_action]);    
         }  
-
-        if($this->from !='' &&  $this->to !='')  {
-            $subQuery->andWhere(['between', 'created_at', $this->from , $this->to ]);
+        
+         
+        if(isset($_GET['PhonesSearch']['from']) && $_GET['PhonesSearch']['from'] !=''
+             &&
+             isset($_GET['PhonesSearch']['to']) && $_GET['PhonesSearch']['to'] !='')  {
+ 
+            $subQuery->andWhere(['between', 'created_at', $_GET['PhonesSearch']['from'], $_GET['PhonesSearch']['to'] ]);
         } 
        
         
