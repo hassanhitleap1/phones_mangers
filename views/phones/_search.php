@@ -94,6 +94,7 @@ $users=(UserStaticClass::isSuperUser())?
         </div>
         <div class="col-md-3">
             <?= $form->field($model, 'type_phone')->dropDownList([
+                   null=>Yii::t('app','All'),
                 Phones::UMNIAH=>Yii::t('app','UMNIAH'),
                 Phones::ZAIN=>Yii::t('app','ZAIN'),
                 Phones::ORANGE=>Yii::t('app','ORANGE'),
