@@ -82,8 +82,9 @@ class PhonesSearch extends Phones
         if(isset($_GET['PhonesSearch']['from']) && $_GET['PhonesSearch']['from'] !=''
              &&
              isset($_GET['PhonesSearch']['to']) && $_GET['PhonesSearch']['to'] !='')  {
- 
+           
             $subQuery->andWhere(['between', 'created_at', $_GET['PhonesSearch']['from'], $_GET['PhonesSearch']['to'] ]);
+            $query->andWhere(['in', 'phones.id', $subQuery]); 
         } 
        
         
@@ -100,7 +101,7 @@ class PhonesSearch extends Phones
             'updated_at' => $this->updated_at,
         ]);
         
-        if($this->status < 2 && $this->status !='' ){
+        if($this->status < 2 && $this->status !=''  ){
             $query->andFilterWhere([    
                 'status' => $this->status
             ]);
