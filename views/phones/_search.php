@@ -9,8 +9,8 @@ use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-$from =isset($_GET['PhonesSearch[from]'])?$_GET['PhonesSearch[from]']: Carbon::now('Asia/Amman')->toDateString();
-$to =isset($_GET['PhonesSearch[to]'])?$_GET['PhonesSearch[to]']: Carbon::now('Asia/Amman')->toDateString();
+$from =isset($_GET['PhonesSearch'] ['from'])?$_GET['PhonesSearch'] ['from']: null;
+$to =isset($_GET['PhonesSearch'] ['to'])?$_GET['PhonesSearch'] ['to']:null;
 $users=(UserStaticClass::isSuperUser())?
             User::find()->all():
             (UserStaticClass::isAdminUser())?

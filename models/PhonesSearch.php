@@ -100,7 +100,7 @@ class PhonesSearch extends Phones
             'updated_at' => $this->updated_at,
         ]);
         
-        if($this->status < 2 && $this->status !=''){
+        if($this->status < 2 && $this->status !='' ){
             $query->andFilterWhere([    
                 'status' => $this->status
             ]);
@@ -108,7 +108,7 @@ class PhonesSearch extends Phones
             $query->andWhere(['not in', 'phones.id', $subQuery]); 
         }
 
-
+      
 
 
        
@@ -120,8 +120,10 @@ class PhonesSearch extends Phones
             ->andFilterWhere(['like', 'title_job', $this->title_job]);
 
 
-    
-      
+        $query->orderBy('status',SORT_ASC);
+        $query->orderBy('fullname',SORT_ASC);
+        $query->orderBy('gender',SORT_ASC);
+        
 
         return $dataProvider;
     }
