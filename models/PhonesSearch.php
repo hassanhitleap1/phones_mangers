@@ -63,6 +63,7 @@ class PhonesSearch extends Phones
         
       
         $subQuery = UserAction::find()->select('phone_id');
+
         if(UserStaticClass::isNormalUser()){
             $subQuery->where(['user_id'=> Yii::$app->user->id]);
         }elseif(UserStaticClass::isAdminUser()){
@@ -70,12 +71,12 @@ class PhonesSearch extends Phones
         }
 
         if($this->status >= 2){
-            $subQuery->andWhere(['status'=>$this->status]);    
+       
+            $subQuery->andWhere(['status'=>$this->status]);
+            $query->andWhere(['in', 'phones.id', $subQuery]); 
+
         }
        
-        if($this->created_at_action !='')  {
-            $subQuery->andWhere(['created_at'=>$this->created_at_action]);    
-        }  
         
          
         if(isset($_GET['PhonesSearch']['from']) && $_GET['PhonesSearch']['from'] !=''
@@ -92,13 +93,22 @@ class PhonesSearch extends Phones
         $query->andFilterWhere([
             'id' => $this->id,
             'type_phone' => $this->type_phone,
-            'status' => $this->status,
             'gender' => $this->gender,
             'date_of_birth' => $this->date_of_birth,
             'order' => $this->order,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+        
+        if($this->status < 2 && $this->status !=''){
+            $query->andFilterWhere([    
+                'status' => $this->status
+            ]);
+
+            $query->andWhere(['not in', 'phones.id', $subQuery]); 
+        }
+
+
 
 
        
@@ -109,9 +119,9 @@ class PhonesSearch extends Phones
             ->andFilterWhere(['like', 'governorate.name_ar', $this->governorate_id])
             ->andFilterWhere(['like', 'title_job', $this->title_job]);
 
-        if($this->status >= 2 || $this->created_at_action !='' || $this->from){
-            $query->orWhere(['in', 'phones.id', $subQuery]); 
-        }
+
+    
+      
 
         return $dataProvider;
     }
