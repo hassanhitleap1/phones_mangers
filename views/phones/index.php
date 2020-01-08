@@ -132,6 +132,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'title' => Yii::t('app', 'lead-update'), 
                                         'class' => 'update-button btn btn-success','data-pjax' => 0]);
                             },
+                            'sendwhatsapp' => function ($url, $model) {     // render your custom button
+                                $phone=substr($model->phone_number, 1);
+                                return  Html::a('whatsapp', 
+                                "https://api.whatsapp.com/send?phone=962$phone&text=", ['target' => '_blank','class' => 'btn btn-info glyphicon glyphicon-envelope', 'data-pjax' => 0]);
+                            },
                      
                         ]
             ],

@@ -37,6 +37,10 @@ class PhonesController extends BaseController
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['site/index']);
+        }
+        
         $searchModel = new PhonesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [
