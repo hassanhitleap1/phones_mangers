@@ -120,7 +120,7 @@ class PhonesSearch extends Phones
             ->andFilterWhere(['like', 'governorate.name_ar', $this->governorate_id])
             ->andFilterWhere(['like', 'title_job', $this->title_job]);
 
-
+        $query->orderBy('order',SORT_ASC);
         $query->orderBy('status',SORT_ASC);
         $query->orderBy('fullname',SORT_ASC);
         $query->orderBy('gender',SORT_ASC);

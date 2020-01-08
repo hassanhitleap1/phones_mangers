@@ -24,7 +24,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             // 'id',
-            'phone_number',
+            [
+                'attribute' => 'phone_number',
+                'value' => function($searchModel){
+                    return "<a href='tel:$searchModel->phone_number'>$searchModel->phone_number</a>";
+                },
+                'format' => 'html',
+            ],
             // 'type_phone',
            // 'status',
             'fullname',
@@ -117,7 +123,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'created_at',
             //'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn','template' => '{view} {update}',
+            ['class' => 'yii\grid\ActionColumn','template' => '{view} {update}{sendwhatsapp}',
             'buttons' => [
                             'view' => function ($url, $model) {
                                 return Html::button(Yii::t('app', 'lead-view'), ['value' => $url,

@@ -36,7 +36,7 @@ class m191210_143153_add_phonse_to_table extends Migration
                                     $naumberZain="079".(string)$one. (string)$two. (string)$three.(string)$four.(string)$five.(string)$sax.(string)$sevien;
                                     
                                     if($one==0){
-                                        $order=mt_rand(0, 9999999);
+                                        $order=mt_rand(0, 999999999);
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
