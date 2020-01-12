@@ -5,10 +5,11 @@ use Carbon\Carbon;
 use yii\db\Migration;
 
 /**
- * Class m191210_143153_add_phonse_to_table
+ * Class m200112_212627_add_phone_to_table
  */
-class m191210_143153_add_phonse_to_table extends Migration
+class m200112_212627_add_phone_to_table extends Migration
 {
+
 
     public $data=['phone_number','type_phone','status','gender','order','created_at','updated_at'];
     public function up()
@@ -494,7 +495,4 @@ class m191210_143153_add_phonse_to_table extends Migration
 
     }
     
-
 }
-
-
