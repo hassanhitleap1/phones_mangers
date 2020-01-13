@@ -2,10 +2,13 @@
 
 use app\models\Phones;
 use app\models\UserAction;
+use app\models\UserMessage;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+$dataModel=UserMessage::find()->where(['user_id'=>Yii::$app->user->id])->one();
+$message=($dataModel==null)?'':$dataModel->text;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\PhonesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -20,6 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'tableOptions' => [
+            'class' => 'table table-striped',
+        ],
+        'options' => [
+            'class' => 'table-responsive',
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -35,21 +44,21 @@ $this->params['breadcrumbs'][] = $this->title;
            // 'status',
             'fullname',
             'title_job',
-            [
-                'attribute' => 'gender',
-                'value' => function($searchModel){
-                        if ($searchModel->gender == Phones::MALE) {
-                            return "ذكر";
-                        } elseif ($searchModel->gender == Phones::FEMALE) {
-                            # code...
-                            return "انثى";
-                        } else {
-                            return 'غير محدد';
-                        }
-                },
-                'filter' =>[0=>"غير محدد",1=>" ذكر",2=>" انثى"],
-                'format' => 'html',
-            ],
+            // [
+            //     'attribute' => 'gender',
+            //     'value' => function($searchModel){
+            //             if ($searchModel->gender == Phones::MALE) {
+            //                 return "ذكر";
+            //             } elseif ($searchModel->gender == Phones::FEMALE) {
+            //                 # code...
+            //                 return "انثى";
+            //             } else {
+            //                 return 'غير محدد';
+            //             }
+            //     },
+            //     'filter' =>[0=>"غير محدد",1=>" ذكر",2=>" انثى"],
+            //     'format' => 'html',
+            // ],
             [
                 'attribute' => 'status',
                 'value' => function ($searchModel) {
@@ -105,20 +114,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]
             ],
 
-            [
-                'attribute' => 'governorate_id',
-                'value' => 'governorate_id.name_ar',
-            ],
+            // [
+            //     'attribute' => 'governorate_id',
+            //     'value' => 'governorate_id.name_ar',
+            // ],
           
-            [
-                'attribute' => 'area_id',
-                'value' => 'area.name_ar',
-            ],
-            [
-                'attribute' => 'nationality_id',
-                'value' => 'nationality.name_ar',
-            ],
-            'date_of_birth',
+            // [
+            //     'attribute' => 'area_id',
+            //     'value' => 'area.name_ar',
+            // ],
+            // [
+            //     'attribute' => 'nationality_id',
+            //     'value' => 'nationality.name_ar',
+            // ],
+            //'date_of_birth',
             //'order',
             //'created_at',
             //'updated_at',
@@ -138,10 +147,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'title' => Yii::t('app', 'lead-update'), 
                                         'class' => 'update-button btn btn-success','data-pjax' => 0]);
                             },
-                            'sendwhatsapp' => function ($url, $model) {     // render your custom button
+                            'sendwhatsapp' => function ($url, $model)use($message) {     // render your custom button
                                 $phone=substr($model->phone_number, 1);
                                 return  Html::a('whatsapp', 
-                                "https://api.whatsapp.com/send?phone=962$phone&text=", ['target' => '_blank','class' => 'btn btn-info glyphicon glyphicon-envelope', 'data-pjax' => 0]);
+                                "https://api.whatsapp.com/send?phone=962$phone&text=$message", ['target' => '_blank','class' => 'btn btn-info glyphicon glyphicon-envelope', 'data-pjax' => 0]);
                             },
                      
                         ]
@@ -164,5 +173,15 @@ $this->params['breadcrumbs'][] = $this->title;
             
 ?>
 </div>
+<style>
 
-
+@media screen and (min-width: 768px) {
+    #title_message {
+        clear: both;
+        display: block;
+        float: left;
+        margin: 10px auto 5px 20px;
+        width: 28%;
+    }
+}
+</style>

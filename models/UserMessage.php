@@ -11,6 +11,7 @@ use Yii;
  * @property string|null $text
  * @property string|null $created_at
  * @property string|null $updated_at
+ * @property int $user_id
  */
 class UserMessage extends \yii\db\ActiveRecord
 {
@@ -30,6 +31,8 @@ class UserMessage extends \yii\db\ActiveRecord
         return [
             [['text'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
+            [['user_id'], 'required'],
+            [['user_id'], 'integer'],
         ];
     }
 
@@ -43,6 +46,7 @@ class UserMessage extends \yii\db\ActiveRecord
             'text' => Yii::t('app', 'Text'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
+            'user_id' => Yii::t('app', 'User ID'),
         ];
     }
 

@@ -15,6 +15,7 @@ class m200112_212557_create_user_message_table extends Migration
         $this->createTable('{{%user_message}}', [
             'id' => $this->primaryKey(),
             'text'=> $this->text(),
+            'user_id'=>$this->integer(),
             'created_at'=>$this->dateTime(),
             'updated_at'=>$this->dateTime(),
         ]);
