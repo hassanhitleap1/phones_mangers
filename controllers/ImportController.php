@@ -57,6 +57,17 @@ class ImportController extends  BaseController
                 if ($model->file && $model->validate()) {
                     $fullPath='upload/'.$model->file->baseName . '.' . $model->file->extension;
                     $model->file->saveAs( $fullPath);
+                    if ( $xlsx = \SimpleXLSX::parse($fullPath) ) {
+                        echo '<table border="1" cellpadding="3" style="border-collapse: collapse">';
+                        foreach( $xlsx->rows() as $r ) {
+                            echo '<tr><td>'.implode('</td><td>', $r ).'</td></tr>';
+                        }
+                        echo '</table>';
+                        // or $xlsx->toHTML();
+                    } else {
+                        echo SimpleXLSX::parseError();
+                    }
+                    exit;
                     Yii::$app->session->setFlash('success', 'sucessfully upload ');
                 }
 
