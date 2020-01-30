@@ -37,7 +37,7 @@ class m200112_212627_add_phone_to_table extends Migration
                                     $naumberZain="079".(string)$one. (string)$two. (string)$three.(string)$four.(string)$five.(string)$sax.(string)$sevien;
                                     
                                     if($one==0){
-                                        $order=mt_rand(0, 999999999);
+                                        $order=mt_rand(0, 99999999999999);
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
@@ -84,7 +84,7 @@ class m200112_212627_add_phone_to_table extends Migration
                                     }
 
                                     if($one==1){
-                                        $order=mt_rand(0, 9999999);
+                                        $order=mt_rand(0, 99999999999999);
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
@@ -127,7 +127,7 @@ class m200112_212627_add_phone_to_table extends Migration
 
                                     if($one==2){
 
-                                        $order=mt_rand(0, 9999999);
+                                        $order=mt_rand(0, 99999999999999);
 
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -171,7 +171,7 @@ class m200112_212627_add_phone_to_table extends Migration
 
                                     if($one==3){
 
-                                        $order=mt_rand(0, 9999999);
+                                        $order=mt_rand(0, 99999999999999);
 
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -214,8 +214,8 @@ class m200112_212627_add_phone_to_table extends Migration
                                     }
 
                                     if($one==4){
-                                  
-                                        $order=mt_rand(0, 9999999);
+
+                                        $order=mt_rand(0, 99999999999999);
 
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -260,8 +260,8 @@ class m200112_212627_add_phone_to_table extends Migration
 
 
                                     if($one==5){
-                                        
-                                        $order=mt_rand(0, 9999999);
+
+                                        $order=mt_rand(0, 99999999999999);
 
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -304,8 +304,8 @@ class m200112_212627_add_phone_to_table extends Migration
                                     }
 
                                     if($one==6){
-                           
-                                        $order=mt_rand(0, 9999999);
+
+                                        $order=mt_rand(0, 99999999999999);
 
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -350,15 +350,15 @@ class m200112_212627_add_phone_to_table extends Migration
 
 
                                     if($one==7){
-                                        
-                                        $order=mt_rand(0, 9999999);
+
+                                        $order=mt_rand(0, 99999999999999);
 
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                       'order' => $order,
+                                             'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -395,8 +395,8 @@ class m200112_212627_add_phone_to_table extends Migration
 
 
                                     if($one==8){
-                                        
-                                        $order=mt_rand(0, 9999999);
+
+                                        $order=mt_rand(0, 99999999999999);
 
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
@@ -442,14 +442,14 @@ class m200112_212627_add_phone_to_table extends Migration
 
                                     if($one==9){
 
-                                        $order=mt_rand(0, 9999999);
+                                        $order=mt_rand(0, 99999999999999);
                                         
                                          array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                       'order' => $order,
+                                            'order' => $order,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                              'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
