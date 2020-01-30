@@ -1,6 +1,7 @@
 <?php
 
 use app\models\User;
+use Carbon\Carbon;
 use yii\db\Migration;
 
 /**
@@ -26,8 +27,8 @@ class m191210_104921_cretae_user_table extends Migration
             'type'=>$this->smallInteger(),
             'super_admin_id'=>$this->integer(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'created_at' => $this->dateTime()->notNull(),
+            'updated_at' => $this->dateTime()->notNull(),
         ], $tableOptions);
 
 
@@ -38,11 +39,13 @@ class m191210_104921_cretae_user_table extends Migration
                 'email'=>'hassankiwan92@gmail.com',
                 'password_hash' => Yii::$app->getSecurity()->generatePasswordHash("programerhk92"),
                 'type' => User::USER_SUPER_ADMIN,
+                'created_at' => Carbon::now('Asia/Amman')->toDateTimeString(),
+                'updated_at' =>Carbon::now('Asia/Amman')->toDateTimeString(),
             ]
         ];
         Yii::$app->db
             ->createCommand()
-            ->batchInsert('user', ['username', 'auth_key', "email","password_hash", "type"], $data)
+            ->batchInsert('user', ['username', 'auth_key', "email","password_hash", "type","created_at","updated_at"], $data)
             ->execute();
     }
     public function down()

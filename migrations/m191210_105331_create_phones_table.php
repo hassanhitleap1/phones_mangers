@@ -24,7 +24,7 @@ class m191210_105331_create_phones_table extends Migration
             'area_id'=>$this->integer(),
             'nationality_id'=>$this->integer(),
             'date_of_birth'=>$this->dateTime(),
-            'order'=>$this->integer(),
+            'order'=>$this->string(),
             'created_at'=>$this->dateTime(),
             'updated_at'=>$this->dateTime(),
         ]);
