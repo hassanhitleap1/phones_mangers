@@ -40,8 +40,17 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Phones', 'url' => ['/phones/index']],
+            ['label' => 'Phones',
+            'items' => [
+                ['label' => Yii::t('app', 'Phone Package 1'), 'url' => ['/phones/index']],
+                ['label' => Yii::t('app', 'Phone Package 2'), 'url' => ['/phones-tow/index']],
+                ['label' => Yii::t('app', 'Phone Package 3'), 'url' => ['/phones-three/index']],
+                ['label' => Yii::t('app', 'Phone Package 4'), 'url' => ['/phones-four/index']],
+                ['label' => Yii::t('app', 'Phone Package 5'), 'url' => ['/phones-five/index']],
+                ['label' => Yii::t('app', 'Phone Package 6'), 'url' => ['/phones-six/index']],
+            ]],
             ['label' => 'Users', 'url' => ['/user-createor/index']],
+        
             ['label' => 'Central', 'url' => ['/central/index']],
             ['label' => 'Message', 'url' => ['/user-message/index']],
             Yii::$app->user->isGuest ? (
