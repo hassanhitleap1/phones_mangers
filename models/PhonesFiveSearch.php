@@ -4,13 +4,13 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Phones;
+use app\models\PhonesFive;
 use Yii;
 
 /**
  * PhonesSearch represents the model behind the search form of `app\models\Phones`.
  */
-class PhonesFiveSearch extends Phones
+class PhonesFiveSearch extends PhonesFive
 {
     /**
      * {@inheritdoc}
@@ -41,7 +41,7 @@ class PhonesFiveSearch extends Phones
      */
     public function search($params)
     {
-        $query = Phones::find();
+        $query = PhonesFive::find();
 
         // add conditions that should always apply here
 

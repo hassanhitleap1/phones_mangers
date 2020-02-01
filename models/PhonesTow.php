@@ -47,7 +47,7 @@ class PhonesTow extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%phones}}';
+        return '{{%phones_tow}}';
     }
 
     /**

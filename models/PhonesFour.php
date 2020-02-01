@@ -47,7 +47,7 @@ class PhonesFour extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%phones}}';
+        return '{{%phones_four}}';
     }
 
     /**
@@ -95,7 +95,7 @@ class PhonesFour extends \yii\db\ActiveRecord
      */
     public static function find()
     {
-        return new PhonesTowQuery(get_called_class());
+        return new PhonesFiveQuery(get_called_class());
     }
 
 
