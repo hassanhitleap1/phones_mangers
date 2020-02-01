@@ -27,8 +27,12 @@ class m200201_000928_create_phones_tow_table extends Migration
             'order'=>$this->string(),
             'created_at'=>$this->dateTime(),
             'updated_at'=>$this->dateTime(),
-        ]);
+        ]); 
+
+        $this->execute("ALTER TABLE phones_tow AUTO_INCREMENT = 5000000;");
+       
     }
+   
 
     /**
      * {@inheritdoc}

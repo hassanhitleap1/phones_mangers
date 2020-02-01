@@ -28,6 +28,8 @@ class m200201_001110_create_phones_six_table extends Migration
             'created_at'=>$this->dateTime(),
             'updated_at'=>$this->dateTime(),
         ]);
+
+        $this->execute("ALTER TABLE phones_tow AUTO_INCREMENT = 25000000;");
     }
 
     /**
