@@ -15,6 +15,9 @@ class m200201_001239_add_phones_to_tables extends Migration
         
         $listPhone=[];
         $order=12;
+        $table=["phones","phones_tow","phones_three","phones_four","phones_five","phones_six"];
+        $numbering=1;
+
         
         for ($one=0; $one < 10 ; $one++) { 
             # code...
@@ -72,7 +75,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                             
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[0],$this->data, $listPhone)
                                             ->execute();
                                             
                                             $listPhone=[];
@@ -117,7 +120,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[1],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -161,7 +164,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[2],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -205,7 +208,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[3],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -250,7 +253,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[4],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -295,7 +298,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[5],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -340,7 +343,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[0],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -385,7 +388,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[1],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -431,7 +434,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[2],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -475,7 +478,7 @@ class m200201_001239_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                             ->createCommand()
-                                            ->batchInsert('phones',$this->data, $listPhone)
+                                            ->batchInsert($table[3],$this->data, $listPhone)
                                             ->execute();
                                             $listPhone=[];
                                         }
@@ -487,6 +490,8 @@ class m200201_001239_add_phones_to_tables extends Migration
                     }
                 }
             }
+        
+            $numbering++;
         }
 
     
