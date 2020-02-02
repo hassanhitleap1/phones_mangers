@@ -22,7 +22,7 @@ use Yii;
  * @property string|null $created_at
  * @property string|null $updated_at
  */
-class Phones extends \yii\db\ActiveRecord
+class PhoneModels extends \yii\db\ActiveRecord
 {
     const UMNIAH = 0;
     const ZAIN = 1;
