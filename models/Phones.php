@@ -47,6 +47,10 @@ class Phones extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
+        if(isset($_GET["model"]) &&  $_GET["model"] <= 30 && $_GET["model"] > 0){
+            $idModel=$_GET["model"];
+            return "phones_$idModel";
+        }
         return '{{%phones}}';
     }
 

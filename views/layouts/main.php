@@ -36,19 +36,17 @@ AppAsset::register($this);
         ],
     ]);
     $guest_menuo =  ['label' => 'Login', 'url' => ['/site/login']];
+    $item=[];
+    for($i=1; $i <= 30;$i++){
+        $item[]= ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
+    }
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Phones',
-            'items' => [
-                ['label' => Yii::t('app', 'Phone Package 1'), 'url' => ['/phones/index']],
-                ['label' => Yii::t('app', 'Phone Package 2'), 'url' => ['/phones-tow/index']],
-                ['label' => Yii::t('app', 'Phone Package 3'), 'url' => ['/phones-three/index']],
-                ['label' => Yii::t('app', 'Phone Package 4'), 'url' => ['/phones-four/index']],
-                ['label' => Yii::t('app', 'Phone Package 5'), 'url' => ['/phones-five/index']],
-                ['label' => Yii::t('app', 'Phone Package 6'), 'url' => ['/phones-six/index']],
-            ]],
+            'items' =>$item],
             ['label' => 'Users', 'url' => ['/user-createor/index']],
         
             ['label' => 'Central', 'url' => ['/central/index']],
