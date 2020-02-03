@@ -19,6 +19,12 @@ $users=(UserStaticClass::isSuperUser())?
 /* @var $this yii\web\View */
 /* @var $model app\models\PhonesSearch */
 /* @var $form yii\widgets\ActiveForm */
+$value=1;
+if(isset($_GET["model"])){
+    $value=$_GET["model"];
+}elseif (isset($_GET['PhonesSearch']['model']) ){
+    $value=$_GET['PhonesSearch']['model'];
+}
 ?>
 
 <div class="phones-search">
@@ -34,7 +40,7 @@ $users=(UserStaticClass::isSuperUser())?
 
 <div class="row">
         <?php if(!UserStaticClass::isNormalUser()):?>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <?= $form->field($model, 'users')->widget(
                 Select2Widget::className(),
                 [
@@ -88,9 +94,6 @@ $users=(UserStaticClass::isSuperUser())?
                     ],
                    
                 ]); ?>
-
-       
-
         </div>
         <div class="col-md-3">
             <?= $form->field($model, 'type_phone')->dropDownList([
@@ -102,6 +105,9 @@ $users=(UserStaticClass::isSuperUser())?
 
        
 
+        </div>
+        <div class="col-md-1">
+            <?= $form->field($model, 'model')->hiddenInput(['value'=> $value])->label(false);?>
         </div>
     </div>
 

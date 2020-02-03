@@ -32,26 +32,41 @@ class Phones extends \yii\db\ActiveRecord
     const UNDEFINED=0;
     const MALE = 1;
     const FEMALE = 2;
-
     public $note;
     public $status_central;
     public $users;
     public $created_at_action;
     public $from;
     public $to;
+    public $model=1;
+    protected static $table ="phones_1";
 
 
-    
+    public function __construct()
+    {
+        $model=$this->model;
+        $table="phones_$model";
+        if(isset($_GET["model"]) &&  $_GET["model"] <= 30 && $_GET["model"] > 0){
+            $model=$_GET["model"];
+            $table="phones_$model";
+        }elseif(isset($_GET['PhonesSearch']['model']) && $_GET['PhonesSearch']['model'] <= 30 && $_GET['PhonesSearch']['model'] > 0){
+            $model=$_GET['PhonesSearch']['model'];
+            $table="phones_$model";
+        }
+        self::$table = $table;
+    }
+
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        if(isset($_GET["model"]) &&  $_GET["model"] <= 30 && $_GET["model"] > 0){
-            $idModel=$_GET["model"];
-            return "phones_$idModel";
-        }
-        return '{{%phones}}';
+        return self::$table;
+    }
+
+    public static function setTableName($table)
+    {
+        self::$table = $table;
     }
 
     /**
