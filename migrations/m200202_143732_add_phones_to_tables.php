@@ -122,7 +122,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
                                             Yii::$app->db
                                                 ->createCommand()
-                                                ->batchInsert($table[1],$this->data, $listPhone)
+                                                ->batchInsert($table,$this->data, $listPhone)
                                                 ->execute();
                                             $listPhone=[];
                                         }
