@@ -27,7 +27,8 @@ class m200202_140030_create_phones_tables extends Migration
                 'updated_at'=>$this->dateTime(),
             ]);
 
-            $this->execute("ALTER TABLE phones_$i AUTO_INCREMENT = 1000000;");
+            $index_from= ($i - 1)*1000000;
+            $this->execute("ALTER TABLE phones_$i AUTO_INCREMENT =".$index_from.";");
         }
 
     }
