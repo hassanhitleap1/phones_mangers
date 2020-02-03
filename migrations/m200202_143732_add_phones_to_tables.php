@@ -15,8 +15,11 @@ class m200202_143732_add_phones_to_tables extends Migration
 
         $listPhone=[];
         $order=12;
-        $numbering=0;
+        $numbering=1;
         $table="phones_1";
+        $order_umnia=mt_rand(0, 99999999999999);
+        $order_zain=mt_rand(0, 99999999999999);
+        $order_orang=mt_rand(0, 99999999999999);
 
 
         for ($one=0; $one < 10 ; $one++) {
@@ -33,20 +36,23 @@ class m200202_143732_add_phones_to_tables extends Migration
                                 # code...
                                 for ($sevien=0; $sevien <10 ; $sevien++) {
                                     # code...
-                                    $numbering++;
+
                                     $table=$this->nameTable($numbering);
                                     $numberUmnia="078".(string)$one. (string)$two. (string)$three.(string)$four.(string)$five.(string)$sax.(string)$sevien;
                                     $numberOrang="077".(string)$one. (string)$two. (string)$three.(string)$four.(string)$five.(string)$sax.(string)$sevien;
                                     $naumberZain="079".(string)$one. (string)$two. (string)$three.(string)$four.(string)$five.(string)$sax.(string)$sevien;
 
+                                    $order_umnia=mt_rand(0, 99999999999999);
+                                    $order_zain=mt_rand(0, 99999999999999);
+                                    $order_orang=mt_rand(0, 99999999999999);
+
                                     if($one==0){
-                                        $order=mt_rand(0, 99999999999999);
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -56,7 +62,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -66,7 +72,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -87,13 +93,12 @@ class m200202_143732_add_phones_to_tables extends Migration
                                     }
 
                                     if($one==1){
-                                        $order=mt_rand(0, 99999999999999);
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -103,7 +108,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -113,7 +118,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -129,15 +134,12 @@ class m200202_143732_add_phones_to_tables extends Migration
                                     }
 
                                     if($one==2){
-
-                                        $order=mt_rand(0, 99999999999999);
-
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -147,7 +149,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -157,7 +159,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -174,14 +176,12 @@ class m200202_143732_add_phones_to_tables extends Migration
 
                                     if($one==3){
 
-                                        $order=mt_rand(0, 99999999999999);
-
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -191,7 +191,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -201,7 +201,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -218,14 +218,12 @@ class m200202_143732_add_phones_to_tables extends Migration
 
                                     if($one==4){
 
-                                        $order=mt_rand(0, 99999999999999);
-
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -235,7 +233,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -245,7 +243,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -263,15 +261,12 @@ class m200202_143732_add_phones_to_tables extends Migration
 
 
                                     if($one==5){
-
-                                        $order=mt_rand(0, 99999999999999);
-
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -281,7 +276,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -291,7 +286,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -308,14 +303,13 @@ class m200202_143732_add_phones_to_tables extends Migration
 
                                     if($one==6){
 
-                                        $order=mt_rand(0, 99999999999999);
 
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -325,7 +319,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -335,7 +329,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -354,14 +348,12 @@ class m200202_143732_add_phones_to_tables extends Migration
 
                                     if($one==7){
 
-                                        $order=mt_rand(0, 99999999999999);
-
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -371,7 +363,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -381,7 +373,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -399,14 +391,12 @@ class m200202_143732_add_phones_to_tables extends Migration
 
                                     if($one==8){
 
-                                        $order=mt_rand(0, 99999999999999);
-
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -416,7 +406,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -426,7 +416,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -445,14 +435,12 @@ class m200202_143732_add_phones_to_tables extends Migration
 
                                     if($one==9){
 
-                                        $order=mt_rand(0, 99999999999999);
-
                                         array_push($listPhone, [
                                             'phone_number' => $numberOrang,
                                             'type_phone' => Phones::ORANGE,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_orang,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -462,7 +450,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::UMNIAH,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_umnia,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -472,7 +460,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             'type_phone' => Phones::ZAIN,
                                             'status' => Phones::ACTIVE,
                                             'gender' => Phones::UNDEFINED,
-                                            'order' => $order,
+                                            'order' => $order_zain,
                                             'created_at' => Carbon::now('Asia/Amman')->toDateString(),
                                             'updated_at' => Carbon::now('Asia/Amman')->toDateString(),
                                         ]);
@@ -485,6 +473,8 @@ class m200202_143732_add_phones_to_tables extends Migration
                                             $listPhone=[];
                                         }
                                     }
+
+                                    $numbering+=3;
 
                                 }
                             }
@@ -502,6 +492,8 @@ class m200202_143732_add_phones_to_tables extends Migration
 
     private  function  nameTable($numbering){
         $id=1;
+        $rand=mt_rand(1, 30);
+        
         if($numbering <= 1000000){
             $id=1;
             return "phones_$id";
@@ -528,6 +520,7 @@ class m200202_143732_add_phones_to_tables extends Migration
             return "phones_$id";
         }elseif (8000000 < $numbering && $numbering <= 9000000){
             $id=9;
+            return "phones_$id";
         }elseif (9000000 < $numbering && $numbering <= 10000000){
             $id=10;
             return "phones_$id";
