@@ -7,9 +7,10 @@ use yii\db\Migration;
  */
 class m200202_140030_create_phones_tables extends Migration
 {
+    public $countTable=120;
     public function safeUp()
     {
-        for ($i=1;$i<=30;$i++){
+        for ($i=1;$i<=$this->countTable;$i++){
             $this->createTable("phones_$i", [
                 'id' => $this->primaryKey(),
                 'phone_number'=>$this->string(),
@@ -27,7 +28,7 @@ class m200202_140030_create_phones_tables extends Migration
                 'updated_at'=>$this->dateTime(),
             ]);
 
-            $index_from= ($i - 1)*1000000;
+            $index_from= ($i - 1)*(30000000/$this->countTable) ;
             $this->execute("ALTER TABLE phones_$i AUTO_INCREMENT =".$index_from.";");
         }
 
@@ -38,7 +39,7 @@ class m200202_140030_create_phones_tables extends Migration
      */
     public function safeDown()
     {
-        for ($i=1;$i<=30;$i++) {
+        for ($i=1;$i<=$this->countTable;$i++) {
             $this->dropTable("phones_$i");
         }
     }

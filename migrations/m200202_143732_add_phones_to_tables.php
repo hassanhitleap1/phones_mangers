@@ -10,8 +10,19 @@ use yii\db\Migration;
 class m200202_143732_add_phones_to_tables extends Migration
 {
     public $data=['phone_number','type_phone','status','gender','order','created_at','updated_at'];
-    public   $id_tables=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+    public   $id_tables=[];//[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+    public $countTable=120;
     public  $id_table=0;
+
+    public function __construct()
+    {
+        $arr=[];
+        for ($i=1; $i <= $this->countTable ;$i++){
+            $arr[]=$i;
+        }
+        $this->id_tables=$arr;
+    }
+
     public function up()
     {
 
@@ -85,7 +96,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -138,7 +149,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -190,7 +201,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -243,7 +254,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -297,7 +308,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -350,7 +361,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -405,7 +416,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -459,7 +470,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -514,7 +525,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
@@ -567,7 +578,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                         if($sevien==9){
 
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
-                                            if($this->id_table == 29){
+                                            if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
                                                 $arr=$this->id_tables;
                                                 shuffle($arr);
