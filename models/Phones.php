@@ -46,10 +46,10 @@ class Phones extends \yii\db\ActiveRecord
     {
         $model=$this->model;
         $table="phones_$model";
-        if(isset($_GET["model"]) &&  $_GET["model"] <= 30 && $_GET["model"] > 0){
+        if(isset($_GET["model"]) &&  $_GET["model"] <= 120 && $_GET["model"] > 0){
             $model=$_GET["model"];
             $table="phones_$model";
-        }elseif(isset($_GET['PhonesSearch']['model']) && $_GET['PhonesSearch']['model'] <= 30 && $_GET['PhonesSearch']['model'] > 0){
+        }elseif(isset($_GET['PhonesSearch']['model']) && $_GET['PhonesSearch']['model'] <= 120 && $_GET['PhonesSearch']['model'] > 0){
             $model=$_GET['PhonesSearch']['model'];
             $table="phones_$model";
         }

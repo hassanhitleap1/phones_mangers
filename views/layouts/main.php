@@ -37,7 +37,7 @@ AppAsset::register($this);
     ]);
     $guest_menuo =  ['label' => 'Login', 'url' => ['/site/login']];
     $item=[];
-    for($i=1; $i <= 30;$i++){
+    for($i=1; $i <= 120 ;$i++){
         $item[]= ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
     }
 
