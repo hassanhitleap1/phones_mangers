@@ -36,21 +36,48 @@ AppAsset::register($this);
         ],
     ]);
     $guest_menuo =  ['label' => 'Login', 'url' => ['/site/login']];
-    $item=[];
-    for($i=1; $i <= 120 ;$i++){
-        $item[]= ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
+
+    $item_one=[];
+    $item_two=[];
+    $item_three=[];
+    $item_four=[];
+    $item_five=[];
+    $item_six=[];
+    for($i=1; $i <= 20 ;$i++){
+        $item_one []= ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
+    }
+    for($i=21; $i <= 40 ;$i++){
+        $item_two[]= ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
+    }
+    for($i=41; $i <= 60 ;$i++){
+        $item_three[]= ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
+    }
+    for($i=61; $i <= 80 ;$i++){
+        $item_four[] = ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
+    }
+    for($i=81; $i <= 100 ;$i++){
+        $item_five[]= ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
+    }
+    for($i=101; $i <= 120 ;$i++){
+        $item_six[]= ['label' => Yii::t('app', "Phone Package $i"), 'url' => ['/phones/index' ,"model"=>$i]];
     }
 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Phones',
-            'items' =>$item],
-            ['label' => 'Users', 'url' => ['/user-createor/index']],
-        
-            ['label' => 'Central', 'url' => ['/central/index']],
-            ['label' => 'Message', 'url' => ['/user-message/index']],
+            ['label' => 'list 1', 'items' =>$item_one],
+            ['label' => 'list 2', 'items' =>$item_two],
+            ['label' => 'list 3', 'items' =>$item_three],
+            ['label' => 'list 4', 'items' =>$item_four],
+            ['label' => 'list 5', 'items' =>$item_five],
+            ['label' => 'list 6', 'items' =>$item_six],
+            ['label' => 'Actions', 'items' =>[
+                ['label' => 'Users', 'url' => ['/user-createor/index']],
+                ['label' => 'Central', 'url' => ['/central/index']],
+                ['label' => 'Message', 'url' => ['/user-message/index']],
+            ]],
+
             Yii::$app->user->isGuest ? (
                 $guest_menuo
             ) : (
