@@ -1,10 +1,10 @@
-# phpstorm project files
+# phpstorm project json_phones
 .idea
 
-# netbeans project files
+# netbeans project json_phones
 nbproject
 
-# zend studio for eclipse project files
+# zend studio for eclipse project json_phones
 .buildpath
 .project
 .settings
@@ -33,3 +33,4 @@ tests/_support/_generated
 /.vagrant
 
 /web/upload
+/web/json_phones/

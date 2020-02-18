@@ -34,7 +34,7 @@ class m200202_143732_add_phones_to_tables extends Migration
         $order_umnia=mt_rand(0, 99999999999999);
         $order_zain=mt_rand(0, 99999999999999);
         $order_orang=mt_rand(0, 99999999999999);
-
+        $url=Yii::getAlias("@app").'/web/json_phones/';
 
         for ($one=0; $one < 10 ; $one++) {
             # code...
@@ -94,7 +94,12 @@ class m200202_143732_add_phones_to_tables extends Migration
 
 
                                         if($sevien==9){
-
+                                            $json=json_encode($listPhone);
+                                            print_r($json);
+                                            $file = fopen($url."phones_1.json", 'w+');
+                                            fwrite($file, $json);
+                                            fclose($file);
+                                            exit();
                                             $table=$this->nameTable($this->id_tables[$this->id_table]);
                                             if($this->id_table == ($this->countTable - 1)){
                                                 $this->id_table =0;
@@ -155,6 +160,7 @@ class m200202_143732_add_phones_to_tables extends Migration
                                                 shuffle($arr);
                                                 $this->id_tables=$arr;
                                             }
+
 
                                             Yii::$app->db
                                                 ->createCommand()
